@@ -43,37 +43,37 @@ public class RegistrationView extends AbstractView<Panel> implements
 
     public RegistrationView() {
         super(new Panel());
-        content.setCaption(SystemMsg.REGISTRATION.get());
+        getContent().setCaption(SystemMsg.REGISTRATION.get());
 
         feedback = new Label();
-        content.addComponent(feedback);
+        getContent().addComponent(feedback);
 
         username = new TextField(SystemMsg.GENERIC_USERNAME.get());
         username.setWidth("300px");
         username.setNullRepresentation("");
-        content.addComponent(username);
+        getContent().addComponent(username);
 
         password = new TextField(SystemMsg.GENERIC_PASSWORD.get());
         password.setWidth("300px");
         password.setSecret(true);
         password.setNullRepresentation("");
-        content.addComponent(password);
+        getContent().addComponent(password);
 
         verifyPassword = new TextField(SystemMsg.VERIFY_PASSWORD.get());
         verifyPassword.setWidth("300px");
         verifyPassword.setSecret(true);
         verifyPassword.setNullRepresentation("");
-        content.addComponent(verifyPassword);
+        getContent().addComponent(verifyPassword);
 
         name = new TextField(SystemMsg.GENERIC_NAME.get());
         name.setWidth("300px");
         name.setNullRepresentation("");
-        content.addComponent(name);
+        getContent().addComponent(name);
 
         email = new TextField(SystemMsg.GENERIC_EMAIL.get());
         email.setWidth("300px");
         email.setNullRepresentation("");
-        content.addComponent(email);
+        getContent().addComponent(email);
 
         HorizontalLayout buttonLayout = new HorizontalLayout();
         buttonLayout.setSpacing(true);
@@ -82,7 +82,7 @@ public class RegistrationView extends AbstractView<Panel> implements
 
         cancelBtn = new Button(SystemMsg.GENERIC_CANCEL.get(), this);
         buttonLayout.addComponent(cancelBtn);
-        content.addComponent(buttonLayout);
+        getContent().addComponent(buttonLayout);
     }
 
     @Override

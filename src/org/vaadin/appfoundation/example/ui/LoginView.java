@@ -37,25 +37,25 @@ public class LoginView extends AbstractView<VerticalLayout> implements
         super(new VerticalLayout());
 
         feedback = new Label();
-        content.addComponent(feedback);
+        getContent().addComponent(feedback);
 
         username = new TextField(SystemMsg.GENERIC_USERNAME.get());
         username.setWidth("100%");
         username.setNullRepresentation("");
-        content.addComponent(username);
+        getContent().addComponent(username);
 
         password = new TextField(SystemMsg.GENERIC_PASSWORD.get());
         password.setWidth("100%");
         password.setSecret(true);
         password.setNullRepresentation("");
-        content.addComponent(password);
+        getContent().addComponent(password);
 
         loginBtn = new Button(SystemMsg.LOGIN_BTN.get(), this);
-        content.addComponent(loginBtn);
+        getContent().addComponent(loginBtn);
 
         registerBtn = new Button(SystemMsg.REGISTER_BTN.get(), this);
         registerBtn.setStyleName(Button.STYLE_LINK);
-        content.addComponent(registerBtn);
+        getContent().addComponent(registerBtn);
     }
 
     @Override

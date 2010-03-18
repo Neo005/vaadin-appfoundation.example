@@ -50,7 +50,7 @@ public class AdModificationView extends AbstractView<Panel> implements
 
         // Define a form factory and add the form to the layout
         form.setFormFieldFactory(new AdFieldFactory());
-        content.addComponent(form);
+        getContent().addComponent(form);
 
         // Add the save and cancel buttons to the layout
         HorizontalLayout buttonLayout = new HorizontalLayout();
@@ -58,7 +58,7 @@ public class AdModificationView extends AbstractView<Panel> implements
         buttonLayout.addComponent(saveBtn);
         buttonLayout.addComponent(cancelBtn);
 
-        content.addComponent(buttonLayout);
+        getContent().addComponent(buttonLayout);
     }
 
     @Override

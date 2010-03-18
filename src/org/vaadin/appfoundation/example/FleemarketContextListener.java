@@ -1,5 +1,7 @@
 package org.vaadin.appfoundation.example;
 
+import java.io.File;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
@@ -12,6 +14,7 @@ import org.vaadin.appfoundation.authentication.data.User;
 import org.vaadin.appfoundation.authentication.util.PasswordUtil;
 import org.vaadin.appfoundation.authentication.util.UserUtil;
 import org.vaadin.appfoundation.example.data.Advertisement;
+import org.vaadin.appfoundation.i18n.InternationalizationServlet;
 import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 /**
@@ -93,6 +96,12 @@ public class FleemarketContextListener implements ServletContextListener {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        // Load translation files into memory
+        URL url = FleamarketApplication.class.getClassLoader().getResource(
+                "translations.xml");
+        File file = new File(url.getPath());
+        InternationalizationServlet.loadTranslations(file);
     }
 
     private int rand(int max) {

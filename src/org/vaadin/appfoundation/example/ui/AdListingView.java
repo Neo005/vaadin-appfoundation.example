@@ -30,13 +30,13 @@ public class AdListingView extends AbstractView<VerticalLayout> {
      */
     @Override
     public void activated(Object... params) {
-        content.removeAllComponents();
+        getContent().removeAllComponents();
         // Loop through all the ads and add them to the view
         List<Advertisement> ads = AdsController.getAds();
         if (ads != null) {
             for (Advertisement ad : ads) {
                 AdView adView = new AdView(ad);
-                content.addComponent(adView);
+                getContent().addComponent(adView);
             }
         }
     }

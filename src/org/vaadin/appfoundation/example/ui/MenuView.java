@@ -33,15 +33,15 @@ public class MenuView extends AbstractView<VerticalLayout> implements
         super(new VerticalLayout());
 
         name = new Label();
-        content.addComponent(name);
+        getContent().addComponent(name);
 
         addAdvertisementBtn = new Button(SystemMsg.ADD_AD_BTN.get(), this);
         addAdvertisementBtn.setStyleName(Button.STYLE_LINK);
-        content.addComponent(addAdvertisementBtn);
+        getContent().addComponent(addAdvertisementBtn);
 
         logoutBtn = new Button(SystemMsg.LOGOUT_BTN.get(), this);
         logoutBtn.setStyleName(Button.STYLE_LINK);
-        content.addComponent(logoutBtn);
+        getContent().addComponent(logoutBtn);
     }
 
     @Override
