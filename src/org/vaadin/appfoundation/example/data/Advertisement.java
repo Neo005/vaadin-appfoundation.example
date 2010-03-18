@@ -2,10 +2,10 @@ package org.vaadin.appfoundation.example.data;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,9 +26,11 @@ public class Advertisement extends AbstractPojo {
     private static final long serialVersionUID = 6096596529412013317L;
 
     @FieldTranslation(tuid = "SUBJECT")
+    @Column(length = 4096)
     private String subject;
 
     @FieldTranslation(tuid = "AD_TEXT")
+    @Column(length = 4096)
     private String message;
 
     @Temporal(TemporalType.TIMESTAMP)
