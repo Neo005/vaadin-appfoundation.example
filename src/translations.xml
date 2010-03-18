@@ -1,0 +1,296 @@
+<tmx version="1.4">
+	<body>
+		<tu tuid="GENERIC_USERNAME">
+			<tuv lang="en">
+				<seg>Username</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Käyttäjätunnus</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Användarnamn</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_PASSWORD">
+			<tuv lang="en">
+				<seg>Password</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Salasana</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Lösenord</seg>
+			</tuv>
+		</tu>
+		<tu tuid="REGISTER_BTN">
+			<tuv lang="en">
+				<seg>Register</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Rekisteröidy</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Registrera</seg>
+			</tuv>
+		</tu>
+		<tu tuid="LOGIN_BTN">
+			<tuv lang="en">
+				<seg>Login</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Kirjaudu sisään</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Logga in</seg>
+			</tuv>
+		</tu>
+		<tu tuid="INVALID_CREDENTIALS">
+			<tuv lang="en">
+				<seg>Invalid username or password</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Virheellinen käyttäjätunnus tai salasana</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Fel användarnamn eller lösenord</seg>
+			</tuv>
+		</tu>
+		<tu tuid="AUTH_SUCCESSFUL">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>TODO</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ADD_AD_BTN">
+			<tuv lang="en">
+				<seg>Add advertisement</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Lisää ilmoitus</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Skapa ny annons</seg>
+			</tuv>
+		</tu>
+		<tu tuid="LOGOUT_BTN">
+			<tuv lang="en">
+				<seg>Logout</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Kirjaudu ulos</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Logga ut</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_NAME">
+			<tuv lang="en">
+				<seg>Name</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Nimi</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Namn</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_EMAIL">
+			<tuv lang="en">
+				<seg>E-mail</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Sähköposti</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>E-post</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_CANCEL">
+			<tuv lang="en">
+				<seg>Cancel</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Peruuta</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Avbryt</seg>
+			</tuv>
+		</tu>
+		<tu tuid="VERIFY_PASSWORD">
+			<tuv lang="en">
+				<seg>Verify password</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Vahvista salasana</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Verifiera lösenordet</seg>
+			</tuv>
+		</tu>
+		<tu tuid="REGISTRATION">
+			<tuv lang="en">
+				<seg>Registration</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Rekisteröityminen</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Registrering</seg>
+			</tuv>
+		</tu>
+		<tu tuid="SUBJECT">
+			<tuv lang="en">
+				<seg>Subject</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Otsikko</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Rubrik</seg>
+			</tuv>
+		</tu>
+		<tu tuid="AD_TEXT">
+			<tuv lang="en">
+				<seg>Advertisement text</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Ilmoituksen tekstiosa</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Annonsens text</seg>
+			</tuv>
+		</tu>
+		<tu tuid="TOO_SHORT_PASSWORD">
+			<tuv lang="en">
+				<seg>Password is too short. The password should be atleast {0}
+					characters.</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Salasana on liian lyhyt. Salasanan tulee olla vähintään {0}
+					merkkiä.</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Lösenordet är för kort. Lösenordet bör vara åtminstone {0}
+					tecken.</seg>
+			</tuv>
+		</tu>
+		<tu tuid="TOO_SHORT_USERNAME">
+			<tuv lang="en">
+				<seg>Username is too short. Username should be atleast {0}
+					characters.</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Käyttäjätunnus on liian lyhyt. Käyttäjätunnuksen tulee olla
+					vähintään {0} merkkiä.</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Användarnamnet är för kort. Användarnamnet bör vara åtminstone
+					{0} tecken.</seg>
+			</tuv>
+		</tu>
+		<tu tuid="PASSWORDS_DO_NOT_MATCH">
+			<tuv lang="en">
+				<seg>Passwords do not match</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Salasanat eivät täsmänneet</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Lösenordet kunde inte verifieras</seg>
+			</tuv>
+		</tu>
+		<tu tuid="USERNAME_TAKEN">
+			<tuv lang="en">
+				<seg>Username is taken</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Käyttäjätunnus on jo olemassa</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Användarnamnen är i bruk</seg>
+			</tuv>
+		</tu>
+		<tu tuid="REGISTRATION_COMPLETED">
+			<tuv lang="en">
+				<seg>Registration completed</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Rekisteröityminen onnistui</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Registreringen färdig</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_SAVE">
+			<tuv lang="en">
+				<seg>Save</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Tallenna</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Spara</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ERROR_FIELD_MAY_NOT_BE_EMPTY">
+			<tuv lang="en">
+				<seg>Field may not be empty</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Kenttä ei saa olla tyhjä</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Fältet får inte vara tomt</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_MODIFY">
+			<tuv lang="en">
+				<seg>Modify</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Muokkaa</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Modifiera</seg>
+			</tuv>
+		</tu>
+		<tu tuid="GENERIC_DELETE">
+			<tuv lang="en">
+				<seg>Delete</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Poista</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Radera</seg>
+			</tuv>
+		</tu>
+		<tu tuid="OOPS">
+			<tuv lang="en">
+				<seg>Oops</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Hups</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Hups</seg>
+			</tuv>
+		</tu>
+		<tu tuid="ERROR_OPTIMISTIC_LOCKING">
+			<tuv lang="en">
+				<seg>Couldn't save the data, as it was simultaneously modified by another user</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>Tietoja ei pystytty tallentamaan, sillä toinen tietoja on muokattu toisen käyttäjän toimesta</seg>
+			</tuv>
+			<tuv lang="se">
+				<seg>Kunde inte spara informationen på grund av att en annan användare modifierat på data samtidigt</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>
