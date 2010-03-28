@@ -12,7 +12,7 @@
 	</context-param>
 	<listener>
 		<listener-class>
-			org.vaadin.appfoundation.example.FleemarketContextListener</listener-class>
+			org.vaadin.appfoundation.example.FleamarketContextListener</listener-class>
 	</listener>
 	<servlet>
 		<servlet-name>Fleamarket Application</servlet-name>

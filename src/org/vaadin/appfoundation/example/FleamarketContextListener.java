@@ -24,14 +24,12 @@ import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
  * @author Kim
  * 
  */
-public class FleemarketContextListener implements ServletContextListener {
+public class FleamarketContextListener implements ServletContextListener {
 
-    @Override
     public void contextDestroyed(ServletContextEvent arg0) {
         // Nothing
     }
 
-    @Override
     public void contextInitialized(ServletContextEvent arg0) {
         try {
             // Register facade
