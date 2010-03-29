@@ -1,5 +1,7 @@
 package org.vaadin.appfoundation.example;
 
+import java.util.Locale;
+
 import org.vaadin.appfoundation.authentication.SessionHandler;
 import org.vaadin.appfoundation.example.ui.MainView;
 import org.vaadin.appfoundation.i18n.Lang;
@@ -23,6 +25,7 @@ public class FleamarketApplication extends Application {
         getContext().addTransactionListener(new SessionHandler(this));
         getContext().addTransactionListener(new ViewHandler(this));
         getContext().addTransactionListener(new Lang(this));
+        Lang.setLocale(Locale.ENGLISH);
 
         // Create the main window and add the MainView to it
         Window mainWindow = new Window("Fleamarket Application");
