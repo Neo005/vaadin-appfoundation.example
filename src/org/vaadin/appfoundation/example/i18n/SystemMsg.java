@@ -1,8 +1,6 @@
 package org.vaadin.appfoundation.example.i18n;
 
-import java.util.Locale;
-
-import org.vaadin.appfoundation.i18n.InternationalizationServlet;
+import org.vaadin.appfoundation.i18n.Lang;
 
 /**
  * An enumeration of all translation messages in the application. Using
@@ -46,12 +44,10 @@ public enum SystemMsg {
 
     ERROR_FIELD_MAY_NOT_BE_EMPTY,
     OOPS,
-    ERROR_OPTIMISTIC_LOCKING
-    ;
+    ERROR_OPTIMISTIC_LOCKING;
 
     public String get(Object... params) {
-        return InternationalizationServlet.getMessage(Locale.getDefault()
-                .getLanguage(), name(), params);
+        return Lang.getMessage(name(), params);
     }
 
 }

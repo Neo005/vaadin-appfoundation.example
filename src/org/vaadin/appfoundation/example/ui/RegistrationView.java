@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.vaadin.appfoundation.authentication.data.User;
+import org.vaadin.appfoundation.authentication.exceptions.PasswordsDoNotMatchException;
+import org.vaadin.appfoundation.authentication.exceptions.TooShortPasswordException;
+import org.vaadin.appfoundation.authentication.exceptions.TooShortUsernameException;
+import org.vaadin.appfoundation.authentication.exceptions.UsernameExistsException;
 import org.vaadin.appfoundation.authentication.util.UserUtil;
-import org.vaadin.appfoundation.authentication.util.UserUtil.RegistrationMsg;
 import org.vaadin.appfoundation.example.i18n.SystemMsg;
 import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 import org.vaadin.appfoundation.view.AbstractView;
@@ -94,29 +97,12 @@ public class RegistrationView extends AbstractView<Panel> implements
         email.setValue(null);
     }
 
-    @Override
     public void buttonClick(ClickEvent event) {
         if (event.getButton().equals(registerBtn)) {
-            RegistrationMsg msg = UserUtil.registerUser((String) username
-                    .getValue(), (String) password.getValue(),
-                    (String) verifyPassword.getValue());
-
-            switch (msg) {
-            case TOO_SHORT_USERNAME:
-                feedback.setValue(SystemMsg.TOO_SHORT_USERNAME.get(UserUtil
-                        .getMinUsernameLength()));
-                break;
-            case TOO_SHORT_PASSWORD:
-                feedback.setValue(SystemMsg.TOO_SHORT_PASSWORD.get(UserUtil
-                        .getMinPasswordLength()));
-                break;
-            case USERNAME_TAKEN:
-                feedback.setValue(SystemMsg.USERNAME_TAKEN.get());
-                break;
-            case PASSWORDS_DO_NOT_MATCH:
-                feedback.setValue(SystemMsg.PASSWORDS_DO_NOT_MATCH.get());
-                break;
-            case REGISTRATION_COMPLETED:
+            try {
+                UserUtil.registerUser((String) username.getValue(),
+                        (String) password.getValue(), (String) verifyPassword
+                                .getValue());
                 getApplication().getMainWindow().showNotification(
                         SystemMsg.REGISTRATION_COMPLETED.get(),
                         Notification.TYPE_TRAY_NOTIFICATION);
@@ -131,10 +117,16 @@ public class RegistrationView extends AbstractView<Panel> implements
                 FacadeFactory.getFacade().store(user);
 
                 ViewHandler.activateView(AdListingView.class);
-                break;
-
-            default:
-                break;
+            } catch (TooShortPasswordException e) {
+                feedback.setValue(SystemMsg.TOO_SHORT_PASSWORD.get(UserUtil
+                        .getMinPasswordLength()));
+            } catch (TooShortUsernameException e) {
+                feedback.setValue(SystemMsg.TOO_SHORT_USERNAME.get(UserUtil
+                        .getMinUsernameLength()));
+            } catch (PasswordsDoNotMatchException e) {
+                feedback.setValue(SystemMsg.PASSWORDS_DO_NOT_MATCH.get());
+            } catch (UsernameExistsException e) {
+                feedback.setValue(SystemMsg.USERNAME_TAKEN.get());
             }
 
         } else {

@@ -40,7 +40,6 @@ public class MainView extends HorizontalLayout implements ViewContainer {
         ViewHandler.activateView(LoginView.class);
     }
 
-    @Override
     public void activate(AbstractView<?> view) {
         if (view instanceof LoginView || view instanceof MenuView) {
             if (rightView == null) {

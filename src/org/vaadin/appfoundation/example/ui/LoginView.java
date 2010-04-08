@@ -1,8 +1,7 @@
 package org.vaadin.appfoundation.example.ui;
 
-import org.vaadin.appfoundation.authentication.AuthenticationMessage;
+import org.vaadin.appfoundation.authentication.exceptions.InvalidCredentialsException;
 import org.vaadin.appfoundation.authentication.util.AuthenticationUtil;
-import org.vaadin.appfoundation.authentication.util.AuthenticationUtil.AFAuthenticationMessage;
 import org.vaadin.appfoundation.example.i18n.SystemMsg;
 import org.vaadin.appfoundation.view.AbstractView;
 import org.vaadin.appfoundation.view.ViewHandler;
@@ -63,23 +62,20 @@ public class LoginView extends AbstractView<VerticalLayout> implements
         feedback.setValue("");
     }
 
-    @Override
     public void buttonClick(ClickEvent event) {
 
         if (event.getButton().equals(loginBtn)) {
             String username = (String) this.username.getValue();
             String password = (String) this.password.getValue();
 
-            AuthenticationMessage msg = AuthenticationUtil.authenticate(
-                    username, password);
-
-            if (msg.equals(AFAuthenticationMessage.AUTH_SUCCESSFUL)) {
+            try {
+                AuthenticationUtil.authenticate(username, password);
                 this.username.setValue(null);
                 this.password.setValue(null);
                 ViewHandler.activateView(MenuView.class);
                 // Update the ad listing
                 ViewHandler.activateView(AdListingView.class);
-            } else {
+            } catch (InvalidCredentialsException e) {
                 feedback.setValue(SystemMsg.INVALID_CREDENTIALS.get());
                 this.password.setValue(null);
             }

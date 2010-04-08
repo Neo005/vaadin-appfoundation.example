@@ -22,9 +22,9 @@ public class FleamarketApplication extends Application {
     @Override
     public void init() {
         // Register the SessionHandler and the ViewHandler to the application
-        getContext().addTransactionListener(new SessionHandler(this));
-        getContext().addTransactionListener(new ViewHandler(this));
-        getContext().addTransactionListener(new Lang(this));
+        SessionHandler.initialize(this);
+        ViewHandler.initialize(this);
+        Lang.initialize(this);
         Lang.setLocale(Locale.ENGLISH);
 
         // Create the main window and add the MainView to it

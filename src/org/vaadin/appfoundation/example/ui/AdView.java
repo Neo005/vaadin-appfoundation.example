@@ -77,7 +77,6 @@ public class AdView extends CustomComponent implements ClickListener {
         return ad;
     }
 
-    @Override
     public void buttonClick(ClickEvent event) {
         if (event.getButton().equals(modifyBtn)) {
             ViewHandler.activateView(AdModificationView.class, getAd());

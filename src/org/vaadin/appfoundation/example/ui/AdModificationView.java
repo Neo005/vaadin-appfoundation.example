@@ -79,7 +79,6 @@ public class AdModificationView extends AbstractView<Panel> implements
     }
 
     @SuppressWarnings("unchecked")
-    @Override
     public void buttonClick(ClickEvent event) {
         if (event.getButton().equals(saveBtn)) {
             // Save was clicked, validate the form and store the object.

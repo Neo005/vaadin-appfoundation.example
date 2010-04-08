@@ -49,7 +49,6 @@ public class MenuView extends AbstractView<VerticalLayout> implements
         name.setValue(SessionHandler.get().getName());
     }
 
-    @Override
     public void buttonClick(ClickEvent event) {
         if (event.getButton().equals(logoutBtn)) {
             SessionHandler.logout();

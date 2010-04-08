@@ -11,6 +11,10 @@ import javax.servlet.ServletContextListener;
 
 import org.vaadin.appfoundation.authentication.SessionHandler;
 import org.vaadin.appfoundation.authentication.data.User;
+import org.vaadin.appfoundation.authentication.exceptions.PasswordsDoNotMatchException;
+import org.vaadin.appfoundation.authentication.exceptions.TooShortPasswordException;
+import org.vaadin.appfoundation.authentication.exceptions.TooShortUsernameException;
+import org.vaadin.appfoundation.authentication.exceptions.UsernameExistsException;
 import org.vaadin.appfoundation.authentication.util.PasswordUtil;
 import org.vaadin.appfoundation.authentication.util.UserUtil;
 import org.vaadin.appfoundation.example.data.Advertisement;
@@ -44,9 +48,19 @@ public class FleamarketContextListener implements ServletContextListener {
             UserUtil.setProperties(prop);
 
             // Register a default user
-            UserUtil.registerUser("demo", "demo", "demo");
-            UserUtil.registerUser("demo2", "demo", "demo");
-            UserUtil.registerUser("demo3", "demo", "demo");
+            try {
+                UserUtil.registerUser("demo", "demo", "demo");
+                UserUtil.registerUser("demo2", "demo", "demo");
+                UserUtil.registerUser("demo3", "demo", "demo");
+            } catch (TooShortPasswordException e) {
+                e.printStackTrace();
+            } catch (TooShortUsernameException e) {
+                e.printStackTrace();
+            } catch (PasswordsDoNotMatchException e) {
+                e.printStackTrace();
+            } catch (UsernameExistsException e) {
+                e.printStackTrace();
+            }
 
             // Get the user we just created and set a name for him
             List<User> users = FacadeFactory.getFacade().list(User.class);
