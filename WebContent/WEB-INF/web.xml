@@ -10,6 +10,9 @@
 		<param-name>productionMode</param-name>
 		<param-value>false</param-value>
 	</context-param>
+	<listener>
+		<listener-class>org.vaadin.appfoundation.example.DemoContextListener</listener-class>
+	</listener>
 	<servlet>
 		<servlet-name>Application Foundation Demo</servlet-name>
 		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
@@ -19,9 +22,25 @@
 			<param-name>application</param-name>
 			<param-value>org.vaadin.appfoundation.example.DemoApplication</param-value>
 		</init-param>
+		<init-param>
+			<description>
+			Application widgetset</description>
+			<param-name>widgetset</param-name>
+			<param-value>org.vaadin.appfoundation.example.widgetset.Vaadin_appfoundation_exampleWidgetset</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Application Foundation Demo</servlet-name>
 		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>I18NServlet</servlet-name>
+		<servlet-class>org.vaadin.appfoundation.i18n.InternationalizationServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>I18NServlet</servlet-name>
+		<url-pattern>/I18NServlet/*</url-pattern>
 	</servlet-mapping>
 </web-app>

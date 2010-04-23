@@ -1,9 +1,35 @@
 <tmx version="1.4">
 	<body>
-		<tu tuid="GENERIC_USERNAME">
+		<tu tuid="auth module">
 			<tuv lang="en">
-				<seg>Username</seg>
+				<seg>Authentication</seg>
 			</tuv>
-		</tu>		
+		</tu>
+		<tu tuid="auth intro">
+			<tuv lang="en">
+				<seg>Introduction to the Authentication module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="intro text to auth module">
+			<tuv lang="en">
+				<seg>Welcome</seg>
+			</tuv>
+		</tu>
+		<tu tuid="auth a user">
+			<tuv lang="en">
+				<seg>Authenticating users</seg>
+			</tuv>
+		</tu>
+		<tu tuid="text for auth a user">
+			<tuv lang="en">
+				<seg>The authentication module provides a simple interface for
+					authenticating users. Bla bla bal</seg>
+			</tuv>
+		</tu>
+		<tu tuid="show code">
+			<tuv lang="en">
+				<seg>Show code for example</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>

@@ -1,0 +1,39 @@
+private Layout buildLoginForm() {
+    FormLayout layout = new FormLayout();
+    // Create a label which we can use to give feedback to the user
+    final Label feedbackLabel = new Label();
+
+    // Create input fields for username and password
+    final TextField usernameField = new TextField("Username");
+    final TextField passwordField = new TextField("Password");
+    passwordField.setSecret(true);
+
+    // Add the login button
+    Button login = new Button(Lang.getMessage("Login"),
+            new ClickListener() {
+
+                private static final long serialVersionUID = -5577423546946890721L;
+
+                public void buttonClick(ClickEvent event) {
+                    // Try to log in the user when the button is clicked
+                    String username = (String) usernameField.getValue();
+                    String password = (String) passwordField.getValue();
+                    try {
+                        AuthenticationUtil.authenticate(username, password);
+                    } catch (InvalidCredentialsException e) {
+                        feedbackLabel
+                                .setValue("Either username or password was wrong");
+                    } catch (AccountLockedException e) {
+                        feedbackLabel
+                                .setValue("The given account has been locked");
+                    }
+                }
+            });
+
+    layout.addComponent(feedbackLabel);
+    layout.addComponent(usernameField);
+    layout.addComponent(passwordField);
+    layout.addComponent(login);
+
+    return layout;
+}
