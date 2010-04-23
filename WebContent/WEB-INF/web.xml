@@ -3,39 +3,25 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<display-name>Fleamarket</display-name>
+	<display-name>AFDemo</display-name>
 	<context-param>
 		<description>
   	Vaadin production mode</description>
 		<param-name>productionMode</param-name>
 		<param-value>false</param-value>
 	</context-param>
-	<listener>
-		<listener-class>
-			org.vaadin.appfoundation.example.FleamarketContextListener</listener-class>
-	</listener>
 	<servlet>
-		<servlet-name>Fleamarket Application</servlet-name>
+		<servlet-name>Application Foundation Demo</servlet-name>
 		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
 		<init-param>
 			<description>
   		Vaadin application class to start</description>
 			<param-name>application</param-name>
-			<param-value>org.vaadin.appfoundation.example.FleamarketApplication</param-value>
+			<param-value>org.vaadin.appfoundation.example.DemoApplication</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Fleamarket Application</servlet-name>
+		<servlet-name>Application Foundation Demo</servlet-name>
 		<url-pattern>/*</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>I18NServlet</servlet-name>
-		<servlet-class>org.vaadin.appfoundation.i18n.InternationalizationServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>I18NServlet</servlet-name>
-		<url-pattern>/I18NServlet/*</url-pattern>
 	</servlet-mapping>
 </web-app>
