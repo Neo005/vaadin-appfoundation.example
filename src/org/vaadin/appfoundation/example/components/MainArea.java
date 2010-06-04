@@ -14,6 +14,7 @@ public class MainArea extends AbstractView<Panel> implements ViewContainer {
 
     public MainArea() {
         super(new Panel());
+        getContent().setSizeFull();
         getContent().addComponent(ViewHandler.getUriFragmentUtil());
     }
 
