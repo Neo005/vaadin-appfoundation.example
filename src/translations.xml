@@ -46,8 +46,14 @@
 				if it was the password that was incorrect. This is by design, just to make sure that your application will
 				not accidentally become vulnerable to account enumeration attacks.
 				
+				The {{{authenticate()}}} method can also throw an {{{AccountLockedException}}}. This exception is thrown if the
+				user account has been locked. When an account is locked, the Authentication module forbids a user from logging
+				in with that specific user, even if the provided credentials would be correct. An account can become locked
+				if a user attempts to log in with a wrong password too many times in a row.
+				
 				Below is shown an example of how to implement a login screen which uses the {{{authenticate()}}} method for
-				authenticating the user.
+				authenticating the user. The example locks the user account after three failed login attempts (incorrect passwords).
+				The example is reseted when this view is reopened.
 				</seg>
 			</tuv>
 		</tu>
