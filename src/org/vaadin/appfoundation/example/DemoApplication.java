@@ -2,6 +2,7 @@ package org.vaadin.appfoundation.example;
 
 import java.util.Locale;
 
+import org.vaadin.appfoundation.authentication.SessionHandler;
 import org.vaadin.appfoundation.i18n.Lang;
 import org.vaadin.appfoundation.view.ViewHandler;
 
@@ -19,6 +20,7 @@ public class DemoApplication extends Application {
         Lang.initialize(this);
         Lang.setLocale(Locale.ENGLISH);
         ViewHandler.initialize(this);
+        SessionHandler.initialize(this);
 
         mainWindow = new MainWindow();
         mainWindow.setSizeFull();

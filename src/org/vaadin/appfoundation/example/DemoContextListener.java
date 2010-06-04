@@ -6,7 +6,10 @@ import java.net.URL;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.vaadin.appfoundation.authentication.data.User;
+import org.vaadin.appfoundation.authentication.util.PasswordUtil;
 import org.vaadin.appfoundation.i18n.InternationalizationServlet;
+import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 public class DemoContextListener implements ServletContextListener {
 
@@ -19,6 +22,17 @@ public class DemoContextListener implements ServletContextListener {
                 "translations.xml");
         File file = new File(url.getPath());
         InternationalizationServlet.loadTranslations(file);
+        try {
+			FacadeFactory.registerFacade("default", true);
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		User user = new User();
+		user.setUsername("demo");
+		user.setPassword(PasswordUtil.generateHashedPassword("demo123"));
+		FacadeFactory.getFacade().store(user);
     }
 
 }
