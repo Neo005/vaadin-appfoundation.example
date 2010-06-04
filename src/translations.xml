@@ -98,6 +98,33 @@
 				place to define the salt value is in your application's ContextListener (see example).
 				
 				The system property key for the password salt is authentication.password.salt 
+				
+				===Minimum length for a password===
+				You can define a minimum length users' passwords. The authentication module will not allow the user to pick a password
+				which is shorter than the defined minimum length.
+				
+				The system property key for the minimum password length is authentication.password.validation.length and the value
+				should be given as an integer.
+				
+				===Password policies===
+				The authentication module provides you with a set of predefined password policies which can be enabled or disabled.
+				You can define that the password must contain
+				
+				* Lower case letters (a-z)
+				* Upper case letters (A-Z)
+				* Numbers (0-9)
+				* Special characters (any character which is none of the above)
+				
+				The system property keys for the policies are as follows:
+				
+				* authentication.password.validation.lowerCaseRequired
+				* authentication.password.validation.upperCaseRequired
+				* authentication.password.validation.numericRequired
+				* authentication.password.validation.specialCharacterRequired
+				
+				Each of the properties take a boolean as their value. True means that the policy is being applied on the passwords
+				and any passwords which do not fulfill the requirements will not be accepted by the authentication module. The
+				policy will be ignored if the property has a value of false.
 				</seg>
 			</tuv>
 		</tu>
