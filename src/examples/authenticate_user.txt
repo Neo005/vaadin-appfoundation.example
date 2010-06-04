@@ -20,6 +20,8 @@ private Layout buildLoginForm() {
                     String password = (String) passwordField.getValue();
                     try {
                         AuthenticationUtil.authenticate(username, password);
+                        // User is now logged in, now change the view or do
+                        // whatever is needed after a login.
                     } catch (InvalidCredentialsException e) {
                         feedbackLabel
                                 .setValue("Either username or password was wrong");
