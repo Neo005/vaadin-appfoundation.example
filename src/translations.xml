@@ -29,6 +29,9 @@
 				 * Protection against brute force attacks by locking accounts after a number of failed login attempts
 				 * Protection against brute force attacks by logging out the user if the current password is incorrect too many times 
 				 in a row when change the user's password
+				 
+				 ==Dependencies==
+				 This module depends on the [[#persistence|persistence module]].
 				</seg>
 			</tuv>
 		</tu>
@@ -60,6 +63,42 @@
 		<tu tuid="show code">
 			<tuv lang="en">
 				<seg>Show code for example</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configuring auth">
+			<tuv lang="en">
+				<seg>Configuring the module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configuring auth text">
+			<tuv lang="en">
+				<seg>=Configuring the authentication module=
+				==Prerequisites==
+				The authentication module depends on the [[#persistence|persistence module]] so make sure you have it
+				configured as well. Also, make sure you have the org.vaadin.appfoundation.authentication.data.User class defined
+				in your persistence.xml file according to the persistence module's descriptions.
+				
+				==Setting up the authentication module==
+				It is really easy to get started with the authentication module. The only thing that needs to be done, is to
+				initialize [[sessionhandler|SessionHandler]] class. It is encouraged that the initialization of the 
+				{{{SessionHandler}}} is done in the application's {{{init()}}} method. Below is a code example of the initialization
+				process.
+				
+				The authentication module provides you with a variation of different configuration parameters which can be defined. 
+				All configuration parameters are defined using java system properties. The following properties are available for
+				the authentication module: 
+				
+				===Salt value for password hash===
+				Before any passwords are stored in the database, they are encrypted with a one-way algorithm (a hash). The salt value
+				is a random string which is concatenated with a user's password before the password is hashed. The resulting hash 
+				value will be harder to break with brute force attacks compared to a hash without a salt value. 
+				
+				Note that once the salt value has been defined, it cannot be changed (- technically, it can be changed, but then it 
+				would invalidate all existing passwords). It is recommended that you choose a salt value and stick to it. A good
+				place to define the salt value is in your application's ContextListener (see example).
+				
+				The system property key for the password salt is authentication.password.salt 
+				</seg>
 			</tuv>
 		</tu>
 	</body>

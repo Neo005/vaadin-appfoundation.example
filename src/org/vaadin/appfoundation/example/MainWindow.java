@@ -1,6 +1,7 @@
 package org.vaadin.appfoundation.example;
 
 import org.vaadin.appfoundation.example.authentication.AuthIntro;
+import org.vaadin.appfoundation.example.authentication.ConfiguringAuth;
 import org.vaadin.appfoundation.example.authentication.UserAuth;
 import org.vaadin.appfoundation.example.components.MainArea;
 import org.vaadin.appfoundation.i18n.Lang;
@@ -67,6 +68,8 @@ public class MainWindow extends Window implements ViewContainer,
 
     private void addAuthViews() {
         addViewToAuthModule(AuthIntro.class, "auth intro", "auth-intro");
+        addViewToAuthModule(ConfiguringAuth.class, "configuring auth",
+                "auth-config");
         addViewToAuthModule(UserAuth.class, "auth a user", "auth-authenticate");
     }
 
