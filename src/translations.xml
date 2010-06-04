@@ -10,20 +10,45 @@
 				<seg>Introduction to the Authentication module</seg>
 			</tuv>
 		</tu>
-		<tu tuid="intro text to auth module">
-			<tuv lang="en">
-				<seg>Welcome</seg>
-			</tuv>
-		</tu>
 		<tu tuid="auth a user">
 			<tuv lang="en">
 				<seg>Authenticating users</seg>
 			</tuv>
 		</tu>
+		<tu tuid="intro text to auth module">
+			<tuv lang="en">
+				<seg>=Introduction to the Authentication module=
+				Unlike the module name suggests, this module is not just about authentication. Additionally to authentication, 
+				the authentication module provides your application user session management, password handling utility methods and
+				features for handling user accounts.
+				
+				==Security==
+				The authentication module has several inbuilt security features, such as
+				
+				 * User's passwords are always stored in hashed format
+				 * Protection against brute force attacks by locking accounts after a number of failed login attempts
+				 * Protection against brute force attacks by logging out the user if the current password is incorrect too many times 
+				 in a row when change the user's password
+				</seg>
+			</tuv>
+		</tu>
 		<tu tuid="text for auth a user">
 			<tuv lang="en">
-				<seg>The authentication module provides a simple interface for
-					authenticating users. Bla bla bal</seg>
+				<seg>=Authenticating users=
+				The authentication module provides a simple interface for authenticating users. Authenticating a user can be done
+				with one simple method call. The authentication is simply done by calling the static 
+				{{{AuthenticationUtil.authenticate()}}} method. The method takes as input two string parameters, a username and
+				a password. If a user is found with the given username and password, then the user's {{{User}}} object is
+				returned. If there no user exists with the given username **or** if the password is incorrect, then a 
+				{{{InvalidCredentialsException}}} is thrown. 
+				
+				The {{{InvalidCredentialsException}}} will **not** tell you whether it was the username that was not found or
+				if it was the password that was incorrect. This is by design, just to make sure that your application will
+				not accidentally become vulnerable to account enumeration attacks.
+				
+				Below is shown an example of how to implement a login screen which uses the {{{authenticate()}}} method for
+				authenticating the user.
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="show code">
