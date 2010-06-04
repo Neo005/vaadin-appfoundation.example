@@ -24,7 +24,7 @@ public class MainWindow extends Window implements ViewContainer,
 
     private SplitPanel splitPanel;
 
-    private SimpleViewContainer mainArea;
+    private MainArea mainArea;
 
     private Accordion menu;
 
@@ -39,7 +39,7 @@ public class MainWindow extends Window implements ViewContainer,
         splitPanel = new SplitPanel();
 
         menu = new Accordion();
-        mainArea = new SimpleViewContainer();
+        mainArea = new MainArea();
 
         splitPanel.addComponent(menu);
         splitPanel.addComponent(mainArea);
@@ -89,6 +89,16 @@ public class MainWindow extends Window implements ViewContainer,
     public void valueChange(ValueChangeEvent event) {
         if (event.getProperty().getValue() != null) {
             ViewHandler.activateView(event.getProperty().getValue());
+        }
+    }
+
+    private class MainArea extends SimpleViewContainer {
+
+        private static final long serialVersionUID = 1536989351465228481L;
+
+        public MainArea() {
+            super();
+            getContent().setSizeFull();
         }
     }
 
