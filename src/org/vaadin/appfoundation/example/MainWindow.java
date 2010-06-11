@@ -10,6 +10,16 @@ import org.vaadin.appfoundation.example.authentication.PasswordUtilityMethods;
 import org.vaadin.appfoundation.example.authentication.RegisterUser;
 import org.vaadin.appfoundation.example.authentication.StoreUser;
 import org.vaadin.appfoundation.example.authentication.UserAuth;
+import org.vaadin.appfoundation.example.authorization.AuthorizationIntro;
+import org.vaadin.appfoundation.example.authorization.CheckingAccessRights;
+import org.vaadin.appfoundation.example.authorization.DenyingAccess;
+import org.vaadin.appfoundation.example.authorization.GrantingAccess;
+import org.vaadin.appfoundation.example.authorization.InitAuthorization;
+import org.vaadin.appfoundation.example.authorization.JPAPm;
+import org.vaadin.appfoundation.example.authorization.MemPm;
+import org.vaadin.appfoundation.example.authorization.PermissionManagers;
+import org.vaadin.appfoundation.example.authorization.Resources;
+import org.vaadin.appfoundation.example.authorization.Roles;
 import org.vaadin.appfoundation.example.components.MainArea;
 import org.vaadin.appfoundation.i18n.Lang;
 import org.vaadin.appfoundation.view.AbstractView;
@@ -37,10 +47,12 @@ public class MainWindow extends Window implements ViewContainer,
     private Accordion menu;
 
     private Tree authModuleTree;
+    private Tree authorizationModuleTree;
 
     public MainWindow() {
         buildMainLayout();
         buildAuthenticationModule();
+        buildAuthorizationModule();
     }
 
     private void buildMainLayout() {
@@ -65,6 +77,14 @@ public class MainWindow extends Window implements ViewContainer,
         tab.setCaption(Lang.getMessage("auth module"));
     }
 
+    private void buildAuthorizationModule() {
+        initAuthorizationTree();
+        addAuthorizationViews();
+
+        Tab tab = menu.addTab(authorizationModuleTree);
+        tab.setCaption(Lang.getMessage("authorization"));
+    }
+
     private void initAuthTree() {
         authModuleTree = new Tree();
         authModuleTree.addContainerProperty("name", String.class, null);
@@ -73,24 +93,53 @@ public class MainWindow extends Window implements ViewContainer,
         authModuleTree.setImmediate(true);
     }
 
+    private void initAuthorizationTree() {
+        authorizationModuleTree = new Tree();
+        authorizationModuleTree
+                .addContainerProperty("name", String.class, null);
+        authorizationModuleTree.setItemCaptionPropertyId("name");
+        authorizationModuleTree.addListener(this);
+        authorizationModuleTree.setImmediate(true);
+    }
+
     private void addAuthViews() {
         addViewToAuthModule(AuthIntro.class, "auth intro", "auth-intro");
         addViewToAuthModule(ConfiguringAuth.class, "configuring auth",
                 "auth-config");
         addViewToAuthModule(UserAuth.class, "auth a user", "auth-authenticate");
         addViewToAuthModule(GettingUserInstance.class,
-                "getting user instance caption", "auth-get-user-instance");
+                "getting user instance caption", "get-user-instance");
         addViewToAuthModule(LogoutExample.class, "logging out a user caption",
-                "auth-logout");
+                "logout");
         addViewToAuthModule(ChangePassword.class, "change password",
-                "auth-change-password");
+                "change-password");
         addViewToAuthModule(RegisterUser.class, "register user",
-                "auth-register-user");
-        addViewToAuthModule(FetchUser.class, "fetching users",
-                "auth-fetch-user");
-        addViewToAuthModule(StoreUser.class, "storing users", "auth-store-user");
+                "register-user");
+        addViewToAuthModule(FetchUser.class, "fetching users", "fetch-user");
+        addViewToAuthModule(StoreUser.class, "storing users", "store-user");
         addViewToAuthModule(PasswordUtilityMethods.class, "password util",
-                "auth-password-util");
+                "password-util");
+    }
+
+    private void addAuthorizationViews() {
+        addViewToAuthorizationModule(AuthorizationIntro.class,
+                "intro to authorization", "authorization-intro");
+        addViewToAuthorizationModule(Resources.class, "resources", "resources");
+        addViewToAuthorizationModule(Roles.class, "roles", "roles");
+        addViewToAuthorizationModule(PermissionManagers.class,
+                "permission managers", "permission-managers");
+        addViewToAuthorizationModule(JPAPm.class, "jpapm",
+                "jpa-permission-managers");
+        addViewToAuthorizationModule(MemPm.class, "mempm",
+                "mem-permission-managers");
+        addViewToAuthorizationModule(InitAuthorization.class,
+                "init authorization", "init-authorization");
+        addViewToAuthorizationModule(GrantingAccess.class, "granting access",
+                "granting-access");
+        addViewToAuthorizationModule(DenyingAccess.class, "denying access",
+                "denying-access");
+        addViewToAuthorizationModule(CheckingAccessRights.class,
+                "checking for access rights", "checking-access");
     }
 
     private void addViewToAuthModule(Class<? extends AbstractView<?>> c,
@@ -99,6 +148,15 @@ public class MainWindow extends Window implements ViewContainer,
         ViewHandler.addUri(uri, c);
 
         Item item = authModuleTree.addItem(c);
+        item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
+    }
+
+    private void addViewToAuthorizationModule(
+            Class<? extends AbstractView<?>> c, String captionTuid, String uri) {
+        ViewHandler.addView(c, this);
+        ViewHandler.addUri(uri, c);
+
+        Item item = authorizationModuleTree.addItem(c);
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 

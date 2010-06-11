@@ -235,5 +235,110 @@
 				<seg>TODO</seg>
 			</tuv>
 		</tu>
+		<tu tuid="authorization">
+			<tuv lang="en">
+				<seg>Authorization</seg>
+			</tuv>
+		</tu>
+		<tu tuid="intro to authorization">
+			<tuv lang="en">
+				<seg>Introduction to Authorization module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="intro to authorization text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="resources">
+			<tuv lang="en">
+				<seg>Resources</seg>
+			</tuv>
+		</tu>
+		<tu tuid="resources text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="roles">
+			<tuv lang="en">
+				<seg>Roles</seg>
+			</tuv>
+		</tu>
+		<tu tuid="roles text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="permission managers">
+			<tuv lang="en">
+				<seg>Permission managers</seg>
+			</tuv>
+		</tu>
+		<tu tuid="permission managers text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="jpapm">
+			<tuv lang="en">
+				<seg>Persisting permission manager</seg>
+			</tuv>
+		</tu>
+		<tu tuid="jpapm text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="mempm">
+			<tuv lang="en">
+				<seg>In-memory permission manager</seg>
+			</tuv>
+		</tu>
+		<tu tuid="mempm text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="init authorization">
+			<tuv lang="en">
+				<seg>Initializing the module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="init authorization text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="granting access">
+			<tuv lang="en">
+				<seg>Granting access</seg>
+			</tuv>
+		</tu>
+		<tu tuid="granting access text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="denying access">
+			<tuv lang="en">
+				<seg>Denying access</seg>
+			</tuv>
+		</tu>
+		<tu tuid="denying access text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="checking for access rights">
+			<tuv lang="en">
+				<seg>Checking for access rights</seg>
+			</tuv>
+		</tu>
+		<tu tuid="checking for access rights text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>
