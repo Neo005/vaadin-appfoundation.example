@@ -23,16 +23,16 @@ public class DemoContextListener implements ServletContextListener {
         File file = new File(url.getPath());
         InternationalizationServlet.loadTranslations(file);
         try {
-			FacadeFactory.registerFacade("default", true);
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		User user = new User();
-		user.setUsername("demo");
-		user.setPassword(PasswordUtil.generateHashedPassword("demo123"));
-		FacadeFactory.getFacade().store(user);
+            FacadeFactory.registerFacade("default", true);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        User user = new User();
+        user.setUsername("demo");
+        user.setPassword(PasswordUtil.generateHashedPassword("demo123"));
+        FacadeFactory.getFacade().store(user);
     }
 
 }
