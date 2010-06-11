@@ -1,0 +1,27 @@
+public class YourApplication extends Application implements LogoutListener {
+
+    private static final long serialVersionUID = 1L;
+
+    private Window mainWindow;
+
+    @Override
+    public void init() {
+        // Register a SessionHandler for this application instance
+        SessionHandler.initialize(this);
+
+        // Register this application instance as a logout event listener
+        SessionHandler.addListener(this);
+
+        mainWindow = new Window();
+        mainWindow.setSizeFull();
+        setMainWindow(mainWindow);
+    }
+
+    @Override
+    public void logout(LogoutEvent event) {
+        // The user has logged out, remove any current views and show the login
+        // screen instead
+        mainWindow.setContent(new LoginScreen());
+    }
+
+}

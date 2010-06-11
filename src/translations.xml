@@ -154,5 +154,36 @@
 				</seg>
 			</tuv>
 		</tu>
+		<tu tuid="logging out a user caption">
+			<tuv lang="en">
+				<seg>Logout process and its events</seg>
+			</tuv>
+		</tu>
+		<tu tuid="logging out a user">
+			<tuv lang="en">
+				<seg>=Logging out a user and logout events=
+				If your applications allows users to log in, then your application probably allows your users to log out as well. 
+				Logging out a user means that the reference between a {{{User}}} object and an application instance is removed. Thus,
+				the application no longer is aware of the previously inlogged user.
+				
+				You can log out a user anywhere in your application, simply by calling {{{SessionHandler.logout()}}}. This will
+				remove the {{{User}}} object reference and dispatch a logout event to any possible listeners. The logout method itself
+				will not affect your application's state in any way. Your application most likely will want to do some actions when
+				the user logs out, for example, remove all views visible and show a login screen to the user. This problem can be
+				solved by registering your application as a LogoutEventListener. Once an event has been dispatched, you will know
+				that the user has logged out and you can perform any actions necessary. See code example below.
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="logout example">
+			<tuv lang="en">
+				<seg>Example of logging out a user</seg>
+			</tuv>
+		</tu>
+		<tu tuid="logout event example">
+			<tuv lang="en">
+				<seg>Example of logout events</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>

@@ -3,6 +3,7 @@ package org.vaadin.appfoundation.example;
 import org.vaadin.appfoundation.example.authentication.AuthIntro;
 import org.vaadin.appfoundation.example.authentication.ConfiguringAuth;
 import org.vaadin.appfoundation.example.authentication.GettingUserInstance;
+import org.vaadin.appfoundation.example.authentication.LogoutExample;
 import org.vaadin.appfoundation.example.authentication.UserAuth;
 import org.vaadin.appfoundation.example.components.MainArea;
 import org.vaadin.appfoundation.i18n.Lang;
@@ -74,6 +75,8 @@ public class MainWindow extends Window implements ViewContainer,
         addViewToAuthModule(UserAuth.class, "auth a user", "auth-authenticate");
         addViewToAuthModule(GettingUserInstance.class,
                 "getting user instance caption", "auth-get-user-instance");
+        addViewToAuthModule(LogoutExample.class, "logging out a user caption",
+                "auth-logout");
     }
 
     private void addViewToAuthModule(Class<? extends AbstractView<?>> c,

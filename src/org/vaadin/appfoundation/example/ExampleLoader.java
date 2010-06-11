@@ -9,13 +9,17 @@ import java.net.URL;
 public class ExampleLoader {
 
     public static enum Examples {
-        AUTHENTICATE_USER("examples/authenticate_user.txt"), 
+        AUTHENTICATE_USER("examples/authenticate_user.txt"),
         AUTHENTICATE_CONTEXT_LISTENER(
                 "examples/authentication_context_listener.txt"),
-        AUTHENTICATE_INIT_MODULE(
-        "examples/authentication_init_module.txt"),
+        AUTHENTICATE_INIT_MODULE("examples/authentication_init_module.txt"),
         AUTHENTICATE_GET_USER_INSTANCE(
-        "examples/authentication_get_user_instance.txt");
+                "examples/authentication_get_user_instance.txt"),
+        AUTHENTICATE_LOGOUT_LISTENER(
+                "examples/authentication_logout_listener.txt"),
+        AUTHENTICATE_LOGOUT_BUTTON("examples/authentication_logout_button.txt"),
+
+        ;
 
         private final String fileName;
 
