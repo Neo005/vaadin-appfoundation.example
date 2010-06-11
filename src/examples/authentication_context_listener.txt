@@ -1,0 +1,30 @@
+public class YourApplicationsContextListener implements ServletContextListener {
+
+    public void contextDestroyed(ServletContextEvent arg0) {
+
+    }
+
+    public void contextInitialized(ServletContextEvent arg0) {
+        // Set the secret salt value for passwords, this value shouldn't be
+        // changed after the application has been take into use
+        System.setProperty("authentication.password.salt",
+                "a secret salt value");
+
+        // The minimum length for passwords is six characters
+        System.setProperty("authentication.password.validation.length", "6");
+
+        // Require that all passwords have lower and upper case letters and
+        // additionally at least one numeric character. Special characters are
+        // not required.
+        System.setProperty(
+                "authentication.password.validation.lowerCaseRequired", "true");
+        System.setProperty(
+                "authentication.password.validation.upperCaseRequired", "true");
+        System.setProperty(
+                "authentication.password.validation.numericRequired", "true");
+        System.setProperty(
+                "authentication.password.validation.specialCharacterRequired",
+                "false");
+    }
+
+}

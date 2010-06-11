@@ -81,8 +81,8 @@
 				==Setting up the authentication module==
 				It is really easy to get started with the authentication module. The only thing that needs to be done, is to
 				initialize [[sessionhandler|SessionHandler]] class. It is encouraged that the initialization of the 
-				{{{SessionHandler}}} is done in the application's {{{init()}}} method. Below is a code example of the initialization
-				process.
+				{{{SessionHandler}}} is done in the application's {{{init()}}} method. See the code example of the initialization
+				process at the end of this page.
 				
 				The authentication module provides you with a variation of different configuration parameters which can be defined. 
 				All configuration parameters are defined using java system properties. The following properties are available for
@@ -95,7 +95,7 @@
 				
 				Note that once the salt value has been defined, it cannot be changed (- technically, it can be changed, but then it 
 				would invalidate all existing passwords). It is recommended that you choose a salt value and stick to it. A good
-				place to define the salt value is in your application's ContextListener (see example).
+				place to define the salt value is in your application's ContextListener (see example at the end of the page).
 				
 				The system property key for the password salt is authentication.password.salt 
 				
@@ -126,6 +126,11 @@
 				and any passwords which do not fulfill the requirements will not be accepted by the authentication module. The
 				policy will be ignored if the property has a value of false.
 				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="example for auth context listener">
+			<tuv lang="en">
+				<seg>Example code for the ContextListener used for defining authentication module's settings</seg>
 			</tuv>
 		</tu>
 	</body>

@@ -9,8 +9,9 @@ import java.net.URL;
 public class ExampleLoader {
 
     public static enum Examples {
-        AUTHENTICATE_USER(
-                "examples/authenticate_user.txt");
+        AUTHENTICATE_USER("examples/authenticate_user.txt"), 
+        AUTHENTICATE_CONTEXT_LISTENER(
+                "examples/authentication_context_listener.txt");
 
         private final String fileName;
 
