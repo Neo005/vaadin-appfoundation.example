@@ -11,7 +11,9 @@ public class ExampleLoader {
     public static enum Examples {
         AUTHENTICATE_USER("examples/authenticate_user.txt"), 
         AUTHENTICATE_CONTEXT_LISTENER(
-                "examples/authentication_context_listener.txt");
+                "examples/authentication_context_listener.txt"),
+        AUTHENTICATE_INIT_MODULE(
+        "examples/authentication_init_module.txt");
 
         private final String fileName;
 

@@ -133,5 +133,10 @@
 				<seg>Example code for the ContextListener used for defining authentication module's settings</seg>
 			</tuv>
 		</tu>
+		<tu tuid="auth module init example">
+			<tuv lang="en">
+				<seg>Example for initalizing the SessionHandler</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>

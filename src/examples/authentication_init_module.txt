@@ -1,0 +1,18 @@
+public class YourApplication extends Application {
+
+    private static final long serialVersionUID = 1L;
+
+    private Window mainWindow;
+
+    @Override
+    public void init() {
+        // Initialize a SessionHandler for this applications instance
+        SessionHandler.initialize(this);
+
+        mainWindow = new Window();
+        mainWindow.setSizeFull();
+        setMainWindow(mainWindow);
+
+    }
+
+}

@@ -21,12 +21,19 @@ public class ConfiguringAuth extends AbstractView<VerticalLayout> {
                         .getMessage("configuring auth text")),
                         Label.CONTENT_XHTML));
 
-        CodeExample example = new CodeExample(
+        CodeExample contextListenerExample = new CodeExample(
                 Examples.AUTHENTICATE_CONTEXT_LISTENER);
-        example.setWidth("100%");
-        example.setDefaultCaption(Lang
+        contextListenerExample.setWidth("100%");
+        contextListenerExample.setDefaultCaption(Lang
                 .getMessage("example for auth context listener"));
-        getContent().addComponent(example);
+        getContent().addComponent(contextListenerExample);
+
+        CodeExample initAuthModuleExample = new CodeExample(
+                Examples.AUTHENTICATE_INIT_MODULE);
+        initAuthModuleExample.setWidth("100%");
+        initAuthModuleExample.setDefaultCaption(Lang
+                .getMessage("auth module init example"));
+        getContent().addComponent(initAuthModuleExample);
     }
 
     @Override
