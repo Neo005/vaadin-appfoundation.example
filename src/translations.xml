@@ -135,7 +135,23 @@
 		</tu>
 		<tu tuid="auth module init example">
 			<tuv lang="en">
-				<seg>Example for initalizing the SessionHandler</seg>
+				<seg>Example for initializing the SessionHandler</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting user instance caption">
+			<tuv lang="en">
+				<seg>Get active user object</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting user instance">
+			<tuv lang="en">
+				<seg>=Getting the user instance for the logged in user=
+				An application will occasionally need to know which user is currently logged in for the active application instance.
+				Once your application has authenticated the user using the {{{AuthenticationUtil.authenticate()}}} method, the active 
+				{{{User}}} object will be stored in the application instance. The {{{SessionHandler}}} class provides a simple and 
+				static way to fetch the logged in user's {{{User}}} object. This is simply done by calling the {{{SessionHandler.get()}}}
+				method. If the user is not logged in, then null will be returned.
+				</seg>
 			</tuv>
 		</tu>
 	</body>

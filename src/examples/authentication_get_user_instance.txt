@@ -1,0 +1,10 @@
+User user = SessionHandler.get();
+if (user != null) {
+    // User is logged in, show his username in a label
+    Label label = new Label("You are logged in as " + user.getUsername());
+    addComponent(label);
+} else {
+    // User is not logged in
+    Button button = new Button("Click here to log in", this);
+    addComponent(button);
+}

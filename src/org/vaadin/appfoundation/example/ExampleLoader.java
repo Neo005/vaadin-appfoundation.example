@@ -13,7 +13,9 @@ public class ExampleLoader {
         AUTHENTICATE_CONTEXT_LISTENER(
                 "examples/authentication_context_listener.txt"),
         AUTHENTICATE_INIT_MODULE(
-        "examples/authentication_init_module.txt");
+        "examples/authentication_init_module.txt"),
+        AUTHENTICATE_GET_USER_INSTANCE(
+        "examples/authentication_get_user_instance.txt");
 
         private final String fileName;
 
