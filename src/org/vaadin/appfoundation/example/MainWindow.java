@@ -1,9 +1,14 @@
 package org.vaadin.appfoundation.example;
 
 import org.vaadin.appfoundation.example.authentication.AuthIntro;
+import org.vaadin.appfoundation.example.authentication.ChangePassword;
 import org.vaadin.appfoundation.example.authentication.ConfiguringAuth;
+import org.vaadin.appfoundation.example.authentication.FetchUser;
 import org.vaadin.appfoundation.example.authentication.GettingUserInstance;
 import org.vaadin.appfoundation.example.authentication.LogoutExample;
+import org.vaadin.appfoundation.example.authentication.PasswordUtilityMethods;
+import org.vaadin.appfoundation.example.authentication.RegisterUser;
+import org.vaadin.appfoundation.example.authentication.StoreUser;
 import org.vaadin.appfoundation.example.authentication.UserAuth;
 import org.vaadin.appfoundation.example.components.MainArea;
 import org.vaadin.appfoundation.i18n.Lang;
@@ -77,6 +82,15 @@ public class MainWindow extends Window implements ViewContainer,
                 "getting user instance caption", "auth-get-user-instance");
         addViewToAuthModule(LogoutExample.class, "logging out a user caption",
                 "auth-logout");
+        addViewToAuthModule(ChangePassword.class, "change password",
+                "auth-change-password");
+        addViewToAuthModule(RegisterUser.class, "register user",
+                "auth-register-user");
+        addViewToAuthModule(FetchUser.class, "fetching users",
+                "auth-fetch-user");
+        addViewToAuthModule(StoreUser.class, "storing users", "auth-store-user");
+        addViewToAuthModule(PasswordUtilityMethods.class, "password util",
+                "auth-password-util");
     }
 
     private void addViewToAuthModule(Class<? extends AbstractView<?>> c,

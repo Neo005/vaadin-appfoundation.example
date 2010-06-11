@@ -185,5 +185,55 @@
 				<seg>Example of logout events</seg>
 			</tuv>
 		</tu>
+		<tu tuid="change password">
+			<tuv lang="en">
+				<seg>Changing user passwords</seg>
+			</tuv>
+		</tu>
+		<tu tuid="register user">
+			<tuv lang="en">
+				<seg>Registering new users</seg>
+			</tuv>
+		</tu>
+		<tu tuid="fetching users">
+			<tuv lang="en">
+				<seg>Fetching User object</seg>
+			</tuv>
+		</tu>
+		<tu tuid="storing users">
+			<tuv lang="en">
+				<seg>Storing User objects</seg>
+			</tuv>
+		</tu>
+		<tu tuid="password util">
+			<tuv lang="en">
+				<seg>Password utility methods</seg>
+			</tuv>
+		</tu>
+		<tu tuid="change user password">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="fetching a user object">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="password utility methods">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="registering a user">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="storing a user object">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>
