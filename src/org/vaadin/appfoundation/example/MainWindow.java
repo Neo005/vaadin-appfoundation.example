@@ -22,7 +22,7 @@ import org.vaadin.appfoundation.example.authorization.Resources;
 import org.vaadin.appfoundation.example.authorization.Roles;
 import org.vaadin.appfoundation.example.components.MainArea;
 import org.vaadin.appfoundation.i18n.Lang;
-import org.vaadin.appfoundation.view.AbstractView;
+import org.vaadin.appfoundation.view.View;
 import org.vaadin.appfoundation.view.ViewContainer;
 import org.vaadin.appfoundation.view.ViewHandler;
 
@@ -142,7 +142,7 @@ public class MainWindow extends Window implements ViewContainer,
                 "checking for access rights", "checking-access");
     }
 
-    private void addViewToAuthModule(Class<? extends AbstractView<?>> c,
+    private void addViewToAuthModule(Class<? extends View> c,
             String captionTuid, String uri) {
         ViewHandler.addView(c, this);
         ViewHandler.addUri(uri, c);
@@ -151,8 +151,8 @@ public class MainWindow extends Window implements ViewContainer,
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 
-    private void addViewToAuthorizationModule(
-            Class<? extends AbstractView<?>> c, String captionTuid, String uri) {
+    private void addViewToAuthorizationModule(Class<? extends View> c,
+            String captionTuid, String uri) {
         ViewHandler.addView(c, this);
         ViewHandler.addUri(uri, c);
 
@@ -160,11 +160,11 @@ public class MainWindow extends Window implements ViewContainer,
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 
-    public void activate(AbstractView<?> view) {
+    public void activate(View view) {
         mainArea.activate(view);
     }
 
-    public void deactivate(AbstractView<?> view) {
+    public void deactivate(View view) {
         mainArea.deactivate(view);
     }
 

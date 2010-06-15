@@ -1,16 +1,18 @@
 package org.vaadin.appfoundation.example.components;
 
 import org.vaadin.appfoundation.view.AbstractView;
+import org.vaadin.appfoundation.view.View;
 import org.vaadin.appfoundation.view.ViewContainer;
 import org.vaadin.appfoundation.view.ViewHandler;
 
+import com.vaadin.ui.Component;
 import com.vaadin.ui.Panel;
 
 public class MainArea extends AbstractView<Panel> implements ViewContainer {
 
     private static final long serialVersionUID = 9010669373711637452L;
 
-    private AbstractView<?> currentView;
+    private View currentView;
 
     public MainArea() {
         super(new Panel());
@@ -37,11 +39,12 @@ public class MainArea extends AbstractView<Panel> implements ViewContainer {
     /**
      * {@inheritDoc}
      */
-    public void activate(AbstractView<?> view) {
+    public void activate(View view) {
         if (currentView == null) {
-            getContent().addComponent(view);
+            getContent().addComponent((Component) view);
         } else {
-            getContent().replaceComponent(currentView, view);
+            getContent().replaceComponent((Component) currentView,
+                    (Component) view);
         }
         currentView = view;
     }
@@ -49,9 +52,9 @@ public class MainArea extends AbstractView<Panel> implements ViewContainer {
     /**
      * {@inheritDoc}
      */
-    public void deactivate(AbstractView<?> view) {
+    public void deactivate(View view) {
         if (currentView != null) {
-            getContent().removeComponent(view);
+            getContent().removeComponent((Component) view);
         }
         currentView = null;
     }
