@@ -340,5 +340,80 @@
 				<seg>TODO</seg>
 			</tuv>
 		</tu>
+		<tu tuid="removing permissions text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="removing permissions">
+			<tuv lang="en">
+				<seg>Removing permissions</seg>
+			</tuv>
+		</tu>
+		<tu tuid="i18n">
+			<tuv lang="en">
+				<seg>Internationalization (i18n)</seg>
+			</tuv>
+		</tu>
+		<tu tuid="i18n intro text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="i18n intro">
+			<tuv lang="en">
+				<seg>Introduction to the i18n module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="updating translations file text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="updating translations file">
+			<tuv lang="en">
+				<seg>Updating the translations file</seg>
+			</tuv>
+		</tu>
+		<tu tuid="translations file text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="translations file">
+			<tuv lang="en">
+				<seg>The translations file</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting messages text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting messages">
+			<tuv lang="en">
+				<seg>Getting a translated message</seg>
+			</tuv>
+		</tu>
+		<tu tuid="field translations text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="field translations">
+			<tuv lang="en">
+				<seg>Translations in forms</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configure i18n text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configure i18n">
+			<tuv lang="en">
+				<seg>Configurint the i18n module</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>

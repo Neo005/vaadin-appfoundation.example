@@ -18,9 +18,16 @@ import org.vaadin.appfoundation.example.authorization.InitAuthorization;
 import org.vaadin.appfoundation.example.authorization.JPAPm;
 import org.vaadin.appfoundation.example.authorization.MemPm;
 import org.vaadin.appfoundation.example.authorization.PermissionManagers;
+import org.vaadin.appfoundation.example.authorization.RemovingPermissions;
 import org.vaadin.appfoundation.example.authorization.Resources;
 import org.vaadin.appfoundation.example.authorization.Roles;
 import org.vaadin.appfoundation.example.components.MainArea;
+import org.vaadin.appfoundation.example.i18n.ConfigureAndIniI18n;
+import org.vaadin.appfoundation.example.i18n.FieldTranslations;
+import org.vaadin.appfoundation.example.i18n.GettingMessages;
+import org.vaadin.appfoundation.example.i18n.I18nIntro;
+import org.vaadin.appfoundation.example.i18n.TranslationsFile;
+import org.vaadin.appfoundation.example.i18n.UpdatingTranslationsFile;
 import org.vaadin.appfoundation.i18n.Lang;
 import org.vaadin.appfoundation.view.View;
 import org.vaadin.appfoundation.view.ViewContainer;
@@ -48,11 +55,13 @@ public class MainWindow extends Window implements ViewContainer,
 
     private Tree authModuleTree;
     private Tree authorizationModuleTree;
+    private Tree i18nModuleTree;
 
     public MainWindow() {
         buildMainLayout();
         buildAuthenticationModule();
         buildAuthorizationModule();
+        buildI18nModule();
     }
 
     private void buildMainLayout() {
@@ -85,6 +94,14 @@ public class MainWindow extends Window implements ViewContainer,
         tab.setCaption(Lang.getMessage("authorization"));
     }
 
+    private void buildI18nModule() {
+        initI18nTree();
+        addI18nViews();
+
+        Tab tab = menu.addTab(i18nModuleTree);
+        tab.setCaption(Lang.getMessage("i18n"));
+    }
+
     private void initAuthTree() {
         authModuleTree = new Tree();
         authModuleTree.addContainerProperty("name", String.class, null);
@@ -100,6 +117,14 @@ public class MainWindow extends Window implements ViewContainer,
         authorizationModuleTree.setItemCaptionPropertyId("name");
         authorizationModuleTree.addListener(this);
         authorizationModuleTree.setImmediate(true);
+    }
+
+    private void initI18nTree() {
+        i18nModuleTree = new Tree();
+        i18nModuleTree.addContainerProperty("name", String.class, null);
+        i18nModuleTree.setItemCaptionPropertyId("name");
+        i18nModuleTree.addListener(this);
+        i18nModuleTree.setImmediate(true);
     }
 
     private void addAuthViews() {
@@ -140,6 +165,21 @@ public class MainWindow extends Window implements ViewContainer,
                 "denying-access");
         addViewToAuthorizationModule(CheckingAccessRights.class,
                 "checking for access rights", "checking-access");
+        addViewToAuthorizationModule(RemovingPermissions.class,
+                "removing permissions", "removing-permissions");
+    }
+
+    private void addI18nViews() {
+        addViewToI18nModule(I18nIntro.class, "i18n intro", "i18n-intro");
+        addViewToI18nModule(TranslationsFile.class, "translations file",
+                "translations");
+        addViewToI18nModule(UpdatingTranslationsFile.class,
+                "updating translations file", "updating-translations");
+        addViewToI18nModule(ConfigureAndIniI18n.class, "configure i18n",
+                "i18n-config");
+        addViewToI18nModule(GettingMessages.class, "getting messages", "getmsg");
+        addViewToI18nModule(FieldTranslations.class, "field translations",
+                "i18n-forms");
     }
 
     private void addViewToAuthModule(Class<? extends View> c,
@@ -157,6 +197,15 @@ public class MainWindow extends Window implements ViewContainer,
         ViewHandler.addUri(uri, c);
 
         Item item = authorizationModuleTree.addItem(c);
+        item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
+    }
+
+    private void addViewToI18nModule(Class<? extends View> c,
+            String captionTuid, String uri) {
+        ViewHandler.addView(c, this);
+        ViewHandler.addUri(uri, c);
+
+        Item item = i18nModuleTree.addItem(c);
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 
