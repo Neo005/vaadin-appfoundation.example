@@ -490,9 +490,79 @@
 				<seg>Persistence</seg>
 			</tuv>
 		</tu>
-		<tu tuid="TODO">
+		<tu tuid="views text">
 			<tuv lang="en">
 				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="views">
+			<tuv lang="en">
+				<seg>Views</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view module intro text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view module intro">
+			<tuv lang="en">
+				<seg>Introduction to the View moduel</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view handler example text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view handler example">
+			<tuv lang="en">
+				<seg>The ViewHandler</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view factories text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view factories">
+			<tuv lang="en">
+				<seg>View factories</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view events text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view events">
+			<tuv lang="en">
+				<seg>View events</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view container text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view container">
+			<tuv lang="en">
+				<seg>View containers</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configuring view module text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configuring view module">
+			<tuv lang="en">
+				<seg>Configuring the View module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="view module">
+			<tuv lang="en">
+				<seg>View</seg>
 			</tuv>
 		</tu>
 	</body>

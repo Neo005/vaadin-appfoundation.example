@@ -35,6 +35,13 @@ import org.vaadin.appfoundation.example.persistence.FetchingData;
 import org.vaadin.appfoundation.example.persistence.PersistenceIntro;
 import org.vaadin.appfoundation.example.persistence.RemovingData;
 import org.vaadin.appfoundation.example.persistence.StoringData;
+import org.vaadin.appfoundation.example.view.ConfiguringView;
+import org.vaadin.appfoundation.example.view.ViewContainerExample;
+import org.vaadin.appfoundation.example.view.ViewEvents;
+import org.vaadin.appfoundation.example.view.ViewFactories;
+import org.vaadin.appfoundation.example.view.ViewHandlerExample;
+import org.vaadin.appfoundation.example.view.ViewIntro;
+import org.vaadin.appfoundation.example.view.Views;
 import org.vaadin.appfoundation.i18n.Lang;
 import org.vaadin.appfoundation.view.View;
 import org.vaadin.appfoundation.view.ViewContainer;
@@ -64,6 +71,7 @@ public class MainWindow extends Window implements ViewContainer,
     private Tree authorizationModuleTree;
     private Tree i18nModuleTree;
     private Tree persistenceModuleTree;
+    private Tree viewModuleTree;
 
     public MainWindow() {
         buildMainLayout();
@@ -71,6 +79,7 @@ public class MainWindow extends Window implements ViewContainer,
         buildAuthorizationModule();
         buildI18nModule();
         buildPersistenceModule();
+        buildViewModule();
     }
 
     private void buildMainLayout() {
@@ -119,6 +128,14 @@ public class MainWindow extends Window implements ViewContainer,
         tab.setCaption(Lang.getMessage("persistence"));
     }
 
+    private void buildViewModule() {
+        initViewTree();
+        addViewViews();
+
+        Tab tab = menu.addTab(viewModuleTree);
+        tab.setCaption(Lang.getMessage("view module"));
+    }
+
     private void initAuthTree() {
         authModuleTree = new Tree();
         prepareTree(authModuleTree);
@@ -137,6 +154,11 @@ public class MainWindow extends Window implements ViewContainer,
     private void initPersistenceTree() {
         persistenceModuleTree = new Tree();
         prepareTree(persistenceModuleTree);
+    }
+
+    private void initViewTree() {
+        viewModuleTree = new Tree();
+        prepareTree(viewModuleTree);
     }
 
     private void prepareTree(Tree tree) {
@@ -223,6 +245,22 @@ public class MainWindow extends Window implements ViewContainer,
                 "storing data", "storing-data");
         addViewToModule(persistenceModuleTree, RemovingData.class,
                 "removing data", "removing-data");
+    }
+
+    private void addViewViews() {
+        addViewToModule(viewModuleTree, ViewIntro.class, "view module intro",
+                "view-intro");
+        addViewToModule(viewModuleTree, ConfiguringView.class,
+                "configuring view module", "view-config");
+        addViewToModule(viewModuleTree, Views.class, "views", "views");
+        addViewToModule(viewModuleTree, ViewContainerExample.class,
+                "view container", "view-container");
+        addViewToModule(viewModuleTree, ViewEvents.class, "view events",
+                "view-events");
+        addViewToModule(viewModuleTree, ViewHandlerExample.class,
+                "view handler example", "viewhandler");
+        addViewToModule(viewModuleTree, ViewFactories.class, "view factories",
+                "viewfactories");
     }
 
     private void addViewToModule(Tree tree, Class<? extends View> c,
