@@ -565,5 +565,15 @@
 				<seg>View</seg>
 			</tuv>
 		</tu>
+		<tu tuid="main view">
+			<tuv lang="en">
+				<seg>=Application Foundation=</seg>
+			</tuv>
+		</tu>
+		<tu tuid="application foundation">
+			<tuv lang="en">
+				<seg>Application Foundation</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>

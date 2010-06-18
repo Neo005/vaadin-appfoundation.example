@@ -74,12 +74,17 @@ public class MainWindow extends Window implements ViewContainer,
     private Tree viewModuleTree;
 
     public MainWindow() {
+        setCaption(Lang.getMessage("application foundation"));
+
         buildMainLayout();
         buildAuthenticationModule();
         buildAuthorizationModule();
         buildI18nModule();
         buildPersistenceModule();
         buildViewModule();
+
+        ViewHandler.addView(MainView.class, this);
+        ViewHandler.activateView(MainView.class);
     }
 
     private void buildMainLayout() {
