@@ -244,7 +244,21 @@
 		</tu>
 		<tu tuid="registering a user">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Registering new users=
+				The {{{UserUtil}}} contains a method for creating new User objects. The method is called 
+				{{{registerUser}}} and as the name suggests, it is designed to be used for user registration
+				forms. 
+				
+				The method takes three input paramters, a username and a password with its respective 
+				verification. Using this utility method will provide you with the following features
+				* Verification of password for typing errors
+				* Validation that new password fulfills set requirements such as length, password policies (see 
+				[[#auth-config|configuring the authentication module]] for more details)
+				* Verifies username's availability to avoid duplicates
+				* Verifies that the username meets the set length requirements
+				
+				
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="storing a user object">
