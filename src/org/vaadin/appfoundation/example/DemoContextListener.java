@@ -33,6 +33,11 @@ public class DemoContextListener implements ServletContextListener {
         user.setUsername("demo");
         user.setPassword(PasswordUtil.generateHashedPassword("demo123"));
         FacadeFactory.getFacade().store(user);
+
+        User user2 = new User();
+        user2.setUsername("demo2");
+        user2.setPassword(PasswordUtil.generateHashedPassword("demo123"));
+        FacadeFactory.getFacade().store(user2);
     }
 
 }
