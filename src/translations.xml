@@ -212,7 +212,24 @@
 		</tu>
 		<tu tuid="change user password">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Changing the user's password=
+				The authentication module provides with a simple method for changing a user's password - just call
+				{{{UserUtil.changePassword()}}}. The method takes four input parameters: the first parameter is the
+				{{{User}}} object of the user whose password we are about to change. The second parameter is the
+				current password of the user, the third and fourth parameters is the new password and a verification
+				for the new password.
+				
+				Using this utility method will provide you with the following features
+				* Verification of old password
+				* Verification of new password for typing errors
+				* Validation that new password fulfills set requirements such as length, password policies (see 
+				[[#auth-config|configuring the authentication module]] for more details)
+				* Protection against brute-force attacks (user is automatically logged out if the current password
+				is incorrect too many times in a row)
+				
+				This utility method is designed to be used by the currently inlogged user for him/her to change
+				his/her password.  
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="fetching a user object">
