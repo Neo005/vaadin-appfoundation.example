@@ -28,6 +28,13 @@ import org.vaadin.appfoundation.example.i18n.GettingMessages;
 import org.vaadin.appfoundation.example.i18n.I18nIntro;
 import org.vaadin.appfoundation.example.i18n.TranslationsFile;
 import org.vaadin.appfoundation.example.i18n.UpdatingTranslationsFile;
+import org.vaadin.appfoundation.example.persistence.ConfiguringPersistence;
+import org.vaadin.appfoundation.example.persistence.CreatingPojos;
+import org.vaadin.appfoundation.example.persistence.FacadeFactoryExamples;
+import org.vaadin.appfoundation.example.persistence.FetchingData;
+import org.vaadin.appfoundation.example.persistence.PersistenceIntro;
+import org.vaadin.appfoundation.example.persistence.RemovingData;
+import org.vaadin.appfoundation.example.persistence.StoringData;
 import org.vaadin.appfoundation.i18n.Lang;
 import org.vaadin.appfoundation.view.View;
 import org.vaadin.appfoundation.view.ViewContainer;
@@ -56,12 +63,14 @@ public class MainWindow extends Window implements ViewContainer,
     private Tree authModuleTree;
     private Tree authorizationModuleTree;
     private Tree i18nModuleTree;
+    private Tree persistenceModuleTree;
 
     public MainWindow() {
         buildMainLayout();
         buildAuthenticationModule();
         buildAuthorizationModule();
         buildI18nModule();
+        buildPersistenceModule();
     }
 
     private void buildMainLayout() {
@@ -102,110 +111,126 @@ public class MainWindow extends Window implements ViewContainer,
         tab.setCaption(Lang.getMessage("i18n"));
     }
 
+    private void buildPersistenceModule() {
+        initPersistenceTree();
+        addPersistenceViews();
+
+        Tab tab = menu.addTab(persistenceModuleTree);
+        tab.setCaption(Lang.getMessage("persistence"));
+    }
+
     private void initAuthTree() {
         authModuleTree = new Tree();
-        authModuleTree.addContainerProperty("name", String.class, null);
-        authModuleTree.setItemCaptionPropertyId("name");
-        authModuleTree.addListener(this);
-        authModuleTree.setImmediate(true);
+        prepareTree(authModuleTree);
     }
 
     private void initAuthorizationTree() {
         authorizationModuleTree = new Tree();
-        authorizationModuleTree
-                .addContainerProperty("name", String.class, null);
-        authorizationModuleTree.setItemCaptionPropertyId("name");
-        authorizationModuleTree.addListener(this);
-        authorizationModuleTree.setImmediate(true);
+        prepareTree(authorizationModuleTree);
     }
 
     private void initI18nTree() {
         i18nModuleTree = new Tree();
-        i18nModuleTree.addContainerProperty("name", String.class, null);
-        i18nModuleTree.setItemCaptionPropertyId("name");
-        i18nModuleTree.addListener(this);
-        i18nModuleTree.setImmediate(true);
+        prepareTree(i18nModuleTree);
+    }
+
+    private void initPersistenceTree() {
+        persistenceModuleTree = new Tree();
+        prepareTree(persistenceModuleTree);
+    }
+
+    private void prepareTree(Tree tree) {
+        tree.addContainerProperty("name", String.class, null);
+        tree.setItemCaptionPropertyId("name");
+        tree.addListener(this);
+        tree.setImmediate(true);
     }
 
     private void addAuthViews() {
-        addViewToAuthModule(AuthIntro.class, "auth intro", "auth-intro");
-        addViewToAuthModule(ConfiguringAuth.class, "configuring auth",
-                "auth-config");
-        addViewToAuthModule(UserAuth.class, "auth a user", "auth-authenticate");
-        addViewToAuthModule(GettingUserInstance.class,
+        addViewToModule(authModuleTree, AuthIntro.class, "auth intro",
+                "auth-intro");
+        addViewToModule(authModuleTree, ConfiguringAuth.class,
+                "configuring auth", "auth-config");
+        addViewToModule(authModuleTree, UserAuth.class, "auth a user",
+                "auth-authenticate");
+        addViewToModule(authModuleTree, GettingUserInstance.class,
                 "getting user instance caption", "get-user-instance");
-        addViewToAuthModule(LogoutExample.class, "logging out a user caption",
-                "logout");
-        addViewToAuthModule(ChangePassword.class, "change password",
-                "change-password");
-        addViewToAuthModule(RegisterUser.class, "register user",
+        addViewToModule(authModuleTree, LogoutExample.class,
+                "logging out a user caption", "logout");
+        addViewToModule(authModuleTree, ChangePassword.class,
+                "change password", "change-password");
+        addViewToModule(authModuleTree, RegisterUser.class, "register user",
                 "register-user");
-        addViewToAuthModule(FetchUser.class, "fetching users", "fetch-user");
-        addViewToAuthModule(StoreUser.class, "storing users", "store-user");
-        addViewToAuthModule(PasswordUtilityMethods.class, "password util",
-                "password-util");
+        addViewToModule(authModuleTree, FetchUser.class, "fetching users",
+                "fetch-user");
+        addViewToModule(authModuleTree, StoreUser.class, "storing users",
+                "store-user");
+        addViewToModule(authModuleTree, PasswordUtilityMethods.class,
+                "password util", "password-util");
     }
 
     private void addAuthorizationViews() {
-        addViewToAuthorizationModule(AuthorizationIntro.class,
+        addViewToModule(authorizationModuleTree, AuthorizationIntro.class,
                 "intro to authorization", "authorization-intro");
-        addViewToAuthorizationModule(Resources.class, "resources", "resources");
-        addViewToAuthorizationModule(Roles.class, "roles", "roles");
-        addViewToAuthorizationModule(PermissionManagers.class,
+        addViewToModule(authorizationModuleTree, Resources.class, "resources",
+                "resources");
+        addViewToModule(authorizationModuleTree, Roles.class, "roles", "roles");
+        addViewToModule(authorizationModuleTree, PermissionManagers.class,
                 "permission managers", "permission-managers");
-        addViewToAuthorizationModule(JPAPm.class, "jpapm",
+        addViewToModule(authorizationModuleTree, JPAPm.class, "jpapm",
                 "jpa-permission-managers");
-        addViewToAuthorizationModule(MemPm.class, "mempm",
+        addViewToModule(authorizationModuleTree, MemPm.class, "mempm",
                 "mem-permission-managers");
-        addViewToAuthorizationModule(InitAuthorization.class,
+        addViewToModule(authorizationModuleTree, InitAuthorization.class,
                 "init authorization", "init-authorization");
-        addViewToAuthorizationModule(GrantingAccess.class, "granting access",
-                "granting-access");
-        addViewToAuthorizationModule(DenyingAccess.class, "denying access",
-                "denying-access");
-        addViewToAuthorizationModule(CheckingAccessRights.class,
+        addViewToModule(authorizationModuleTree, GrantingAccess.class,
+                "granting access", "granting-access");
+        addViewToModule(authorizationModuleTree, DenyingAccess.class,
+                "denying access", "denying-access");
+        addViewToModule(authorizationModuleTree, CheckingAccessRights.class,
                 "checking for access rights", "checking-access");
-        addViewToAuthorizationModule(RemovingPermissions.class,
+        addViewToModule(authorizationModuleTree, RemovingPermissions.class,
                 "removing permissions", "removing-permissions");
     }
 
     private void addI18nViews() {
-        addViewToI18nModule(I18nIntro.class, "i18n intro", "i18n-intro");
-        addViewToI18nModule(TranslationsFile.class, "translations file",
-                "translations");
-        addViewToI18nModule(UpdatingTranslationsFile.class,
+        addViewToModule(i18nModuleTree, I18nIntro.class, "i18n intro",
+                "i18n-intro");
+        addViewToModule(i18nModuleTree, TranslationsFile.class,
+                "translations file", "translations");
+        addViewToModule(i18nModuleTree, UpdatingTranslationsFile.class,
                 "updating translations file", "updating-translations");
-        addViewToI18nModule(ConfigureAndIniI18n.class, "configure i18n",
-                "i18n-config");
-        addViewToI18nModule(GettingMessages.class, "getting messages", "getmsg");
-        addViewToI18nModule(FieldTranslations.class, "field translations",
-                "i18n-forms");
+        addViewToModule(i18nModuleTree, ConfigureAndIniI18n.class,
+                "configure i18n", "i18n-config");
+        addViewToModule(i18nModuleTree, GettingMessages.class,
+                "getting messages", "getmsg");
+        addViewToModule(i18nModuleTree, FieldTranslations.class,
+                "field translations", "i18n-forms");
     }
 
-    private void addViewToAuthModule(Class<? extends View> c,
+    private void addPersistenceViews() {
+        addViewToModule(persistenceModuleTree, PersistenceIntro.class,
+                "persistence module intro", "persistence-intro");
+        addViewToModule(persistenceModuleTree, ConfiguringPersistence.class,
+                "configuring persistence module", "persistence-config");
+        addViewToModule(persistenceModuleTree, FacadeFactoryExamples.class,
+                "facade factory exmaple", "facadefactory");
+        addViewToModule(persistenceModuleTree, CreatingPojos.class,
+                "creating pojos", "creating-pojos");
+        addViewToModule(persistenceModuleTree, FetchingData.class,
+                "fetching data", "fetching-data");
+        addViewToModule(persistenceModuleTree, StoringData.class,
+                "storing data", "storing-data");
+        addViewToModule(persistenceModuleTree, RemovingData.class,
+                "removing data", "removing-data");
+    }
+
+    private void addViewToModule(Tree tree, Class<? extends View> c,
             String captionTuid, String uri) {
         ViewHandler.addView(c, this);
         ViewHandler.addUri(uri, c);
 
-        Item item = authModuleTree.addItem(c);
-        item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
-    }
-
-    private void addViewToAuthorizationModule(Class<? extends View> c,
-            String captionTuid, String uri) {
-        ViewHandler.addView(c, this);
-        ViewHandler.addUri(uri, c);
-
-        Item item = authorizationModuleTree.addItem(c);
-        item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
-    }
-
-    private void addViewToI18nModule(Class<? extends View> c,
-            String captionTuid, String uri) {
-        ViewHandler.addView(c, this);
-        ViewHandler.addUri(uri, c);
-
-        Item item = i18nModuleTree.addItem(c);
+        Item item = tree.addItem(c);
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 

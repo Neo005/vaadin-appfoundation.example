@@ -415,5 +415,85 @@
 				<seg>Configurint the i18n module</seg>
 			</tuv>
 		</tu>
+		<tu tuid="configuring persistence module">
+			<tuv lang="en">
+				<seg>Configurint the persistence module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="configuring persistence module text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="creating pojos text">
+			<tuv lang="en">
+				<seg>creating pojos text</seg>
+			</tuv>
+		</tu>
+		<tu tuid="creating pojos">
+			<tuv lang="en">
+				<seg>Creating POJOs</seg>
+			</tuv>
+		</tu>
+		<tu tuid="persistence module intro">
+			<tuv lang="en">
+				<seg>Introduction to persistence module</seg>
+			</tuv>
+		</tu>
+		<tu tuid="persistence module intro text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="facade factory exmaple text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="facade factory exmaple">
+			<tuv lang="en">
+				<seg>Using the FacadeFactory</seg>
+			</tuv>
+		</tu>
+		<tu tuid="fetching data text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="fetching data">
+			<tuv lang="en">
+				<seg>Fetching data</seg>
+			</tuv>
+		</tu>
+		<tu tuid="removing data text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="removing data">
+			<tuv lang="en">
+				<seg>Removing data</seg>
+			</tuv>
+		</tu>
+		<tu tuid="storing data text">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="storing data">
+			<tuv lang="en">
+				<seg>Storing data</seg>
+			</tuv>
+		</tu>
+		<tu tuid="persistence">
+			<tuv lang="en">
+				<seg>Persistence</seg>
+			</tuv>
+		</tu>
+		<tu tuid="TODO">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
 	</body>
 </tmx>
