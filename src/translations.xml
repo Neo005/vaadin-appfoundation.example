@@ -292,9 +292,12 @@
 				</seg>
 			</tuv>
 		</tu>
-		<tu tuid="TODO">
+		<tu tuid="password validity">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>==Checing for password validity==
+				The {{{PasswordUtil}}} contains a method for checking if a password is valid, in other words, that it
+				fulfills all the requirements set in the configuration. To check the validity of a password, simply
+				call {{{PasswordUtil.isValid()}}} and give as the parameter the value you want to check</seg>
 			</tuv>
 		</tu>
 		<tu tuid="TODO">

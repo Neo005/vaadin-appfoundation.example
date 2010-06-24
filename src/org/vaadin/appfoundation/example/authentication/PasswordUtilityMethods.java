@@ -26,6 +26,9 @@ public class PasswordUtilityMethods extends Page {
         addWikiText("password validators");
         getContent().addComponent(buildPasswordTextField());
         addCodeExample(Examples.AUTHENTICATE_PASSWORD_VALIDATORS, "show code");
+
+        addWikiText("password validity");
+        addCodeExample(Examples.AUTHENTICATE_PASSWORD_VALIDITY, "show code");
     }
 
     private TextField buildPasswordTextField() {

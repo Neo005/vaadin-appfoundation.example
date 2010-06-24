@@ -29,6 +29,8 @@ public class ExampleLoader {
                 "examples/authentication_getMinPasswordLength.txt"),
         AUTHENTICATE_PASSWORD_VALIDATORS(
                 "examples/authentication_password_validators.txt"),
+        AUTHENTICATE_PASSWORD_VALIDITY(
+                "examples/authentication_password_validity.txt"),
 
         ;
 
