@@ -244,7 +244,10 @@
 		</tu>
 		<tu tuid="fetching a user object">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Fetching a User object=
+				The {{{UserUtil}}} class provides with a simple method for fetching an instance of the {{{User}}}
+				object with a given ID. This method is simply a wrapper for facade's {{{find()}}} method.
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="password utility methods">

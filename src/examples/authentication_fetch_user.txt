@@ -1,0 +1,4 @@
+User user = UserUtil.getUser(123L);
+// Prints out "123", assuming there is a user object with the ID 123
+System.out.println(user.getId());
+
