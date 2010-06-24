@@ -300,9 +300,16 @@
 				call {{{PasswordUtil.isValid()}}} and give as the parameter the value you want to check</seg>
 			</tuv>
 		</tu>
-		<tu tuid="TODO">
+		<tu tuid="password verification">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>==Password verification==
+				Sometimes there is a need to verify an arbitrary user's password against a given password. Consider an
+				application where an administrator can change the password of another user, for example, if the user
+				has forgotten his password (note, rather generate random password than use this approach, this is only
+				an example!). However, before the administrator can change a user's password, he must provide his own
+				password. The code example below demonstrates a method which verifies the administrator's password
+				by using the {{{verifyPassword()}}} method in the {{{PasswordUtil}}}.
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="registering a user">

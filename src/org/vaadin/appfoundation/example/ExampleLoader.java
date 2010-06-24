@@ -31,6 +31,8 @@ public class ExampleLoader {
                 "examples/authentication_password_validators.txt"),
         AUTHENTICATE_PASSWORD_VALIDITY(
                 "examples/authentication_password_validity.txt"),
+        AUTHENTICATE_PASSWORD_VERIFICATION(
+                "examples/authentication_verify_password.txt"),
 
         ;
 
