@@ -1,0 +1,77 @@
+private Layout buildRegisterForm() {
+    FormLayout layout = new FormLayout();
+
+    final Label feedbackLabel = new Label();
+    layout.addComponent(feedbackLabel);
+
+    final TextField username = new TextField("Username");
+    username.setNullRepresentation("");
+    layout.addComponent(username);
+
+    final TextField password = new TextField("Password");
+    password.setNullRepresentation("");
+    password.setSecret(true);
+    layout.addComponent(password);
+
+    final TextField verifyPassword = new TextField("Verify password");
+    verifyPassword.setNullRepresentation("");
+    verifyPassword.setSecret(true);
+    layout.addComponent(verifyPassword);
+
+    final TextField realName = new TextField("Real name");
+    realName.setNullRepresentation("");
+    layout.addComponent(realName);
+
+    final TextField email = new TextField("Email address");
+    email.setNullRepresentation("");
+    layout.addComponent(email);
+
+    Button registerButton = new Button("Register", new ClickListener() {
+
+        private static final long serialVersionUID = 9048069425045731789L;
+
+        @Override
+        public void buttonClick(ClickEvent event) {
+            try {
+                User user = UserUtil.registerUser((String) username
+                        .getValue(), (String) password.getValue(),
+                        (String) verifyPassword.getValue());
+                // user successfully registered
+                user.setName((String) realName.getValue());
+                user.setEmail((String) email.getValue());
+                // The user pojo needs to be stored as we've added the name
+                // and email address as additional information
+                FacadeFactory.getFacade().store(user);
+
+                getApplication().getMainWindow().showNotification(
+                        "User registered",
+                        Notification.TYPE_HUMANIZED_MESSAGE);
+            } catch (TooShortPasswordException e) {
+                feedbackLabel
+                        .setValue("Password is too short, it needs to be at least "
+                                + UserUtil.getMinPasswordLength()
+                                + " characters long");
+            } catch (TooShortUsernameException e) {
+                feedbackLabel
+                        .setValue("Username is too short, it needs to be at least "
+                                + UserUtil.getMinUsernameLength()
+                                + " characters long");
+            } catch (PasswordsDoNotMatchException e) {
+                feedbackLabel.setValue("Password verification has failed");
+            } catch (UsernameExistsException e) {
+                feedbackLabel
+                        .setValue("The chosen username already exists, please pick another one");
+            } catch (PasswordRequirementException e) {
+                feedbackLabel
+                        .setValue("Password does not meet the set requirements");
+            }
+
+            password.setValue(null);
+            verifyPassword.setValue(null);
+
+        }
+    });
+    layout.addComponent(registerButton);
+
+    return layout;
+}

@@ -8,6 +8,7 @@ import javax.servlet.ServletContextListener;
 
 import org.vaadin.appfoundation.authentication.data.User;
 import org.vaadin.appfoundation.authentication.util.PasswordUtil;
+import org.vaadin.appfoundation.example.authentication.AuthenticationFacade;
 import org.vaadin.appfoundation.i18n.InternationalizationServlet;
 import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
@@ -24,6 +25,8 @@ public class DemoContextListener implements ServletContextListener {
         InternationalizationServlet.loadTranslations(file);
         try {
             FacadeFactory.registerFacade("default", true);
+            FacadeFactory.registerFacade(AuthenticationFacade.class, "auth",
+                    false);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

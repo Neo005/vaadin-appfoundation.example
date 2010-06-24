@@ -20,6 +20,7 @@ public class ExampleLoader {
         AUTHENTICATE_LOGOUT_BUTTON("examples/authentication_logout_button.txt"),
         AUTHENTICATE_CHANGE_PASSWORD(
                 "examples/authentication_change_password.txt"),
+        AUTHENTICATE_REGISTER_USER("examples/authentication_register.txt"),
 
         ;
 

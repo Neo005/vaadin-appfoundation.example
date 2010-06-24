@@ -257,7 +257,9 @@
 				* Verifies username's availability to avoid duplicates
 				* Verifies that the username meets the set length requirements
 				
-				
+				The example below simulates a registration form for new users. The form simulates a situation 
+				where the username "demo" is reserved. Note that in this example application, the registered
+				users are not actually stored, so the credentials cannot be used in other examples.
 				</seg>
 			</tuv>
 		</tu>

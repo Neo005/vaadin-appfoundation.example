@@ -8,6 +8,7 @@ import org.vaadin.appfoundation.authentication.exceptions.TooShortUsernameExcept
 import org.vaadin.appfoundation.authentication.exceptions.UsernameExistsException;
 import org.vaadin.appfoundation.authentication.util.UserUtil;
 import org.vaadin.appfoundation.example.Page;
+import org.vaadin.appfoundation.example.ExampleLoader.Examples;
 import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
 
 import com.vaadin.ui.Button;
@@ -18,6 +19,7 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Window.Notification;
 
 public class RegisterUser extends Page {
 
@@ -29,6 +31,7 @@ public class RegisterUser extends Page {
         super("registering a user");
 
         getContent().addComponent(examplePanel);
+        addCodeExample(Examples.AUTHENTICATE_REGISTER_USER, "show code");
     }
 
     private Layout buildRegisterForm() {
@@ -75,6 +78,12 @@ public class RegisterUser extends Page {
                     // The user pojo needs to be stored as we've added the name
                     // and email address as additional information
                     FacadeFactory.getFacade().store(user);
+
+                    getApplication().getMainWindow().showNotification(
+                            "User registered",
+                            Notification.TYPE_HUMANIZED_MESSAGE);
+                    examplePanel.removeAllComponents();
+                    examplePanel.addComponent(buildRegisterForm());
                 } catch (TooShortPasswordException e) {
                     feedbackLabel
                             .setValue("Password is too short, it needs to be at least "
@@ -109,5 +118,12 @@ public class RegisterUser extends Page {
     public void activated(Object... params) {
         examplePanel.removeAllComponents();
         examplePanel.addComponent(buildRegisterForm());
+        FacadeFactory.setDefaultFacade("auth");
+    }
+
+    @Override
+    public void deactivated(Object... params) {
+        super.deactivated(params);
+        FacadeFactory.setDefaultFacade("default");
     }
 }
