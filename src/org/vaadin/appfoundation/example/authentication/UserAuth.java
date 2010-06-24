@@ -93,7 +93,6 @@ public class UserAuth extends AbstractView<VerticalLayout> {
         User user = FacadeFactory.getFacade().find(User.class, 1L);
         if (user.isAccountLocked()) {
             user.setAccountLocked(false);
-            FacadeFactory.getFacade().store(user);
         }
         refreshExamplePanel();
     }

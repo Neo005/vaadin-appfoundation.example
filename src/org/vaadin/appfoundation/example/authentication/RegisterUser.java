@@ -118,12 +118,6 @@ public class RegisterUser extends Page {
     public void activated(Object... params) {
         examplePanel.removeAllComponents();
         examplePanel.addComponent(buildRegisterForm());
-        FacadeFactory.setDefaultFacade("auth");
     }
 
-    @Override
-    public void deactivated(Object... params) {
-        super.deactivated(params);
-        FacadeFactory.setDefaultFacade("default");
-    }
 }

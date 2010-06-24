@@ -125,6 +125,13 @@
 				Each of the properties take a boolean as their value. True means that the policy is being applied on the passwords
 				and any passwords which do not fulfill the requirements will not be accepted by the authentication module. The
 				policy will be ignored if the property has a value of false.
+				
+				===Brute-force protection===
+				AppFoundation has inbuilt protection against brute-force attacks. This is accomplished by locking an account after
+				a number of failed login attempts. By default, five successive failed login attempts are required for the account
+				to be locked. You can change the limit with the authentication.maxFailedLoginAttempts parameter. Note that the 
+				parameter defines how many failed login attempts are allow, so if you set the value three, it means that the
+				account will be locked after the *fourth* successive failed login attempt.
 				</seg>
 			</tuv>
 		</tu>
@@ -229,6 +236,9 @@
 				
 				This utility method is designed to be used by the currently inlogged user for him/her to change
 				his/her password.  
+				
+				The example below shows an example of a "change password" form. The current password is "demo123".
+			 	The current password's value is reseted back to this value each time you open up this view.
 				</seg>
 			</tuv>
 		</tu>

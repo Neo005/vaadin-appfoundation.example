@@ -138,8 +138,6 @@ public class ChangePassword extends Page {
     public void activated(Object... params) {
         currentUser = FacadeFactory.getFacade().find(User.class, 2L);
         currentUser.setPassword(PasswordUtil.generateHashedPassword("demo123"));
-        FacadeFactory.getFacade().store(currentUser);
-
         examplePanel.removeAllComponents();
         examplePanel.addComponent(buildPwdChangeForm());
         SessionHandler.setUser(currentUser);

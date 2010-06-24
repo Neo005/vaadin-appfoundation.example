@@ -1,4 +1,4 @@
-package org.vaadin.appfoundation.example.authentication;
+package org.vaadin.appfoundation.example;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.vaadin.appfoundation.authentication.data.User;
 import org.vaadin.appfoundation.persistence.data.AbstractPojo;
 import org.vaadin.appfoundation.persistence.facade.IFacade;
 
-public class AuthenticationFacade implements IFacade {
+public class ExampleMockFacade implements IFacade {
 
     @Override
     public void close() {
@@ -41,9 +41,14 @@ public class AuthenticationFacade implements IFacade {
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <A extends AbstractPojo> A find(Class<A> clazz, Long id) {
-        // TODO Auto-generated method stub
+        if (clazz.equals(User.class)) {
+            User user = ExampleData.getUser(id);
+
+            return (A) user;
+        }
         return null;
     }
 
@@ -51,12 +56,37 @@ public class AuthenticationFacade implements IFacade {
     @Override
     public <A extends AbstractPojo> A find(String queryStr,
             Map<String, Object> parameters) {
-        if (parameters != null && parameters.containsKey("username")
-                && parameters.get("username") != null
-                && parameters.get("username").equals("demo")) {
-            return (A) new User();
+        if (parameterEquals(parameters, "username", "demo")) {
+            return (A) find(User.class, 1L);
+        } else if (parameterEquals(parameters, "username", "demo2")) {
+            return (A) find(User.class, 2L);
         }
+
         return null;
+    }
+
+    private boolean parameterEquals(Map<String, Object> parameters,
+            String param, String value) {
+        if (parameters == null) {
+            return false;
+        }
+
+        if (!parameters.containsKey(param)) {
+            return false;
+        }
+
+        Object paramValue = parameters.get(param);
+
+        if (paramValue == null && value != null) {
+            return false;
+        }
+
+        if (paramValue.equals(value)) {
+            return true;
+        }
+
+        return false;
+
     }
 
     @Override

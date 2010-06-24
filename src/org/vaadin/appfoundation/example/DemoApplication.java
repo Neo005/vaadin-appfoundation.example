@@ -21,6 +21,7 @@ public class DemoApplication extends Application {
         Lang.setLocale(Locale.ENGLISH);
         ViewHandler.initialize(this);
         SessionHandler.initialize(this);
+        ExampleData.initialize(this);
 
         mainWindow = new MainWindow();
         mainWindow.setSizeFull();

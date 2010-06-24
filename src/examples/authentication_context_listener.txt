@@ -25,6 +25,12 @@ public class YourApplicationsContextListener implements ServletContextListener {
         System.setProperty(
                 "authentication.password.validation.specialCharacterRequired",
                 "false");
+        
+        
+        // Only allow three successive failed login attempts before an
+        // account becomes locked, on the fourth failed attempt the account
+        // will be locked.
+        System.setProperty("authentication.maxFailedLoginAttempts", "3");
     }
 
 }
