@@ -278,7 +278,10 @@
 		</tu>
 		<tu tuid="storing a user object">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Storing a User object=
+				The {{{UserUtil}}} class provides with a simple method for storing an instance of the {{{User}}}
+				objec. This method is simply a wrapper for facade's {{{store()}}} method.
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="authorization">

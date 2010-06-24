@@ -1,0 +1,8 @@
+// Get the inlogged user's User object
+User user = SessionHandler.get();
+
+// Set a new name
+user.setName("John Doe");
+
+// Store the object
+UserUtil.storeUser(user);

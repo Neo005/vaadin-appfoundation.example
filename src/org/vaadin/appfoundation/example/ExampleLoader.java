@@ -22,6 +22,7 @@ public class ExampleLoader {
                 "examples/authentication_change_password.txt"),
         AUTHENTICATE_REGISTER_USER("examples/authentication_register.txt"),
         AUTHENTICATE_FETCH_USER("examples/authentication_fetch_user.txt"),
+        AUTHENTICATE_STORE_USER("examples/authentication_store_user.txt"),
 
         ;
 

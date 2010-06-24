@@ -1,36 +1,15 @@
 package org.vaadin.appfoundation.example.authentication;
 
-import org.vaadin.appfoundation.i18n.Lang;
-import org.vaadin.appfoundation.view.AbstractView;
+import org.vaadin.appfoundation.example.Page;
+import org.vaadin.appfoundation.example.ExampleLoader.Examples;
 
-import ys.wikiparser.WikiParser;
-
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
-
-public class StoreUser extends AbstractView<VerticalLayout> {
+public class StoreUser extends Page {
 
     private static final long serialVersionUID = 1531144454612314170L;
 
     public StoreUser() {
-        super(new VerticalLayout());
-
-        getContent().addComponent(
-                new Label(WikiParser.renderXHTML(Lang
-                        .getMessage("storing a user object")),
-                        Label.CONTENT_XHTML));
-    }
-
-    @Override
-    public void activated(Object... params) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void deactivated(Object... params) {
-        // TODO Auto-generated method stub
-
+        super("storing a user object");
+        addCodeExample(Examples.AUTHENTICATE_STORE_USER, "show code");
     }
 
 }
