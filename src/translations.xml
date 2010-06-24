@@ -252,6 +252,53 @@
 		</tu>
 		<tu tuid="password utility methods">
 			<tuv lang="en">
+				<seg>=Password utility methods=
+				Application Foundation has a utility class for handling passwords. Each of the methods provided by the
+				utility class are described below.</seg>
+			</tuv>
+		</tu>
+		<tu tuid="generateHashedPassword">
+			<tuv lang="en">
+				<seg>==Password hashing==
+				Application Foundation never stores passwords in a clear text format in the database. All passwords are
+				encrypted with a one-way algorithm (hashed) before they are stored. Before the password is hashed, a
+				salt value is concatenated to the password in order to avoid rainbow attacks. The password utility class 
+				provides a method for generating correctly hashed passwords. For example, if your user has forgotten his
+				password and you need to create him a new one, you will need to create him a new password, hash the
+				password and store it in the user object. Code example below shows this process and the usage of
+				the password hashing method.				
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getMinPasswordLength">
+			<tuv lang="en">
+				<seg>==Get the minimum length for passwords==
+				PasswordUtil's {{{getMinPasswordLength()}}} method returns the currently active minimum length set for
+				passwords.
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="password validators">
+			<tuv lang="en">
+				<seg>==Password validators==
+				As described in the configuration of the authentication module, you can define password policies for
+				user passwords. In some cases, you might want to give the user fast feedback on whether the given
+				password fullfills the set requirements. The {{{PasswordUtil.getValidators()}}} method returns you
+				normal Vaadin validator objects which you can attach to a password field.
+				
+				The example below show you how to apply the validators to a text field. The example has only a validator
+				for a minimum password length. Note that the validator will get triggered after you remove focus from
+				the TextField.
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="TODO">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="TODO">
+			<tuv lang="en">
 				<seg>TODO</seg>
 			</tuv>
 		</tu>

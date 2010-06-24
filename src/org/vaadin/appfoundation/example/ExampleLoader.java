@@ -23,6 +23,12 @@ public class ExampleLoader {
         AUTHENTICATE_REGISTER_USER("examples/authentication_register.txt"),
         AUTHENTICATE_FETCH_USER("examples/authentication_fetch_user.txt"),
         AUTHENTICATE_STORE_USER("examples/authentication_store_user.txt"),
+        AUTHENTICATE_GENERATE_HASHED_PASSWORD(
+                "examples/authentication_generateHashedPassword.txt"),
+        AUTHENTICATE_GET_MIN_PWD_LENGTH(
+                "examples/authentication_getMinPasswordLength.txt"),
+        AUTHENTICATE_PASSWORD_VALIDATORS(
+                "examples/authentication_password_validators.txt"),
 
         ;
 
