@@ -16,10 +16,7 @@ public abstract class Page extends AbstractView<VerticalLayout> {
 
     public Page(String tuid) {
         super(new VerticalLayout());
-
-        getContent().addComponent(
-                new Label(WikiParser.renderXHTML(Lang.getMessage(tuid)),
-                        Label.CONTENT_XHTML));
+        addWikiText(tuid);
     }
 
     protected void addCodeExample(Examples example, String captionTuid) {
@@ -30,6 +27,12 @@ public abstract class Page extends AbstractView<VerticalLayout> {
         }
 
         getContent().addComponent(codeExample);
+    }
+
+    protected void addWikiText(String tuid) {
+        getContent().addComponent(
+                new Label(WikiParser.renderXHTML(Lang.getMessage(tuid)),
+                        Label.CONTENT_XHTML));
     }
 
     @Override
