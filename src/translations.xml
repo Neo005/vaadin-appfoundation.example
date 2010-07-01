@@ -463,7 +463,17 @@
 		</tu>
 		<tu tuid="i18n intro text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Introduction to the i18n module=
+				Often applications need to be written for a multilingual audience. Therefore we must have a way to 
+				easily make translations of our applications. Even though you know that your application will not need
+				any translation, it is still a good practice to keep the natural language strings away from your 
+				application code. The internationalization (i18n) module will help you accomplish that task.
+
+				The i18n module builds on the TMX (Translation Memory eXchange) format, which has become more or less an 
+				industry standard for storing translation messages. It is a clear and simple, human readable XML format. 
+				If XML is a curse word to you, don't worry, this module will provide you with a tool for creating and 
+				maintaining your translation file, just to ease your pain. 
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="i18n intro">
@@ -483,7 +493,60 @@
 		</tu>
 		<tu tuid="translations file text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Translation files=
+				The i18n module builds on the TMX (Translation Memory eXchange) format, which has become more or less an 
+				industry standard for storing translation messages. All the translation messages in your application are
+				located in one or more translation files. There are multiple conventions on deciding how you want to use
+				you translation files. In some application, you may want to keep all translation in one single file. Maybe
+				you want to keep all the translations for one specific language in one file and the translations for another
+				language in another file. Or maybe you want to separate the translations based on application structure, so
+				that the translations for one module of your application resides in one translation file and another 
+				module's translations are in a separate file.
+				
+				The stub for a translation file looks like this
+				{{{&lt;tmx version="1.4"&gt;
+   &lt;body&gt;
+   &lt;/body&gt;
+&lt;/tmx&gt;
+				}}}  
+				
+				Your translation messages are plain text messages in your translations file(s). Each translation message is 
+				called a "translation unit" or "tu". Each unit has a unique identifier, called "tuid". The translation unit 
+				consists of a number of translation unit variants ("tuv") where each tuv stands for the translation of a message 
+				for a specific language. A simple translation unit in the translation file could look like this
+				
+				{{{&lt;tu tuid="GENERIC_USERNAME"&gt;
+   &lt;tuv lang="en"&gt;
+      &lt;seg&gt;Username&lt;/seg&gt;
+   &lt;/tuv&gt;
+   &lt;tuv lang="fi"&gt;
+      &lt;seg&gt;Käyttäjätunnus&lt;/seg&gt;
+   &lt;/tuv&gt;
+   &lt;tuv lang="se"&gt;
+      &lt;seg&gt;Användarnamn&lt;/seg&gt;
+   &lt;/tuv&gt;
+&lt;/tu&gt;}}} 
+
+				In this translation unit, we've translated the generic string "username" into three different languages, English, Finnish 
+				and Swedish. Often our messages need to be dynamic, in other words, we want to change some of the content of the 
+				translation depending on some variable in the application. A common example could be a welcoming message which is 
+				shown after a user is logged in.
+				
+				{{{&lt;tu tuid="WELCOME_MESSAGE"&gt;
+   &lt;tuv lang="en"&gt;
+      &lt;seg&gt;Welcome {0}, your last login was {1}&lt;/seg&gt;
+   &lt;/tuv&gt;
+   &lt;tuv lang="fi"&gt;
+      &lt;seg&gt;Tervetuloa {0}, edellinen kirjautumisesi oli {1}&lt;/seg&gt;
+   &lt;/tuv&gt;
+   &lt;tuv lang="se"&gt;
+      &lt;seg&gt;Välkommen {0}, din senaste inloggning var {1}&lt;/seg&gt;
+   &lt;/tuv&gt;
+&lt;/tu&gt;}}} 
+
+				This generic message contains two parameters which are identified by the a number between curly brackets. These parameters 
+				will be replaced with the actual values when the user fetches the translated message from the servlet. 
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="translations file">
@@ -513,12 +576,32 @@
 		</tu>
 		<tu tuid="configure i18n text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Configuring the i18n module=
+				You'll only need to do three things to get the module up and running. The first task is to register the servlet 
+				in our web.xml -file. It can be done by adding the following rows to your web.xml -file: 
+				
+				{{{&lt;servlet&gt;
+      &lt;servlet-name&gt;I18NServlet&lt;/servlet-name&gt;
+      &lt;servlet-class&gt;org.vaadin.appfoundation.i18n.InternationalizationServlet&lt;/servlet-class&gt;
+      &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+
+&lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;I18NServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/I18NServlet/*&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;}}}
+
+				The second task is to load your translations files' content to the InternationalizationServlet. This can be done by 
+				calling the loadTranslations()  method in the servlet. The method takes as input a File object. A good practice 
+				is to call this method in the application's context listener (see example below).
+
+				Finally, you'll need to initialize the Lang class for your application instance. 
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="configure i18n">
 			<tuv lang="en">
-				<seg>Configurint the i18n module</seg>
+				<seg>Configuring the i18n module</seg>
 			</tuv>
 		</tu>
 		<tu tuid="configuring persistence module">
