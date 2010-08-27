@@ -46,6 +46,10 @@ public class ExampleLoader {
         I18N_GET_MSG_TEXT_FIELD("examples/i18n_getmsg_ex1.txt"),
         I18N_GET_MSG_WITH_PARAM("examples/i18n_getmsg_ex2.txt"),
         I18N_GET_MSG_VIA_LANG("examples/i18n_getmsg_ex3.txt"),
+        I18N_CUSTOMER_POJO("examples/i18n_customer_pojo.txt"),
+        I18N_CUSTOMER_POJO_TRANSLATIONS(
+                "examples/i18n_customer_pojo_translations.txt"),
+        I18N_FORM("examples/i18n_form.txt"),
 
         ;
 

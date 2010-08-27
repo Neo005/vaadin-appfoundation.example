@@ -1,0 +1,28 @@
+<tmx version="1.4">
+	<body>
+		<tu tuid="name">
+			<tuv lang="en">
+				<seg>Name</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Name</seg>
+			</tuv>
+		</tu>
+		<tu tuid="email">
+			<tuv lang="en">
+				<seg>E-mail address</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>E-Mail-Adresse</seg>
+			</tuv>
+		</tu>
+		<tu tuid="phone">
+			<tuv lang="en">
+				<seg>Phone number</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Telefonnummer</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>

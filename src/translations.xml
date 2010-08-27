@@ -693,12 +693,61 @@ tf.setCaption(InternationalizationServlet.getMessage(lang, "username"));
 		</tu>
 		<tu tuid="field translations text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Translation messages and forms=
+				Combining Vaadin forms with BeanItems and translated messages can be a bit tricky. If you create a BeanItem
+				from your POJO and set it as the datasource to a form, the form will automatically create fields to the form
+				based on your POJO's field types. The form will use the name of the field's name as the caption for the
+				form field it is creating. In many cases, this will suffice and if you need to change the form field type or
+				the caption of a form field, you need to create a FormFieldFactory and manipulate the fields manually.
+				
+				If your application is translated into multiple language, your only option would be to create a FormFieldFactory
+				in which you manually set the caption for each and every field based on the chosen locale. AppFoundation
+				provides you with means for dynamically creating forms with localized field captions.
+				
+				==Step 1: Define translations for your fields==
+				The first step is to translate your POJOs' fields. As an example, we'll use a class named Customer and assume
+				it has three fields: name, e-mail address and phone number. To define the translationed captions for each field
+				we'll need to annotate each field with the {{{@FieldTranslation}}} annotation. The annotation has a the 
+				argument "tuid" which we need to fill. This argument's value is the translation unit's identifier for the
+				field name, the actual translation message for the field name should use the same identifier in the translation
+				file.				
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="field translations text2">
+			<tuv lang="en">
+				<seg>==Step 2: Creating the form==
+				The i18n module contains its own extension for the default Vaadin form. The form is called {{{I18nForm}}} and
+				it automatically looks for the FieldTranslation annotation in your POJO, if an annotation with a tuid is found,
+				then the translation message is used as the caption for the field. The {{{I18nForm}}}'s constructor requires
+				you to provide your POJO's class as its only argument, in our case, we would initialize the class by calling
+				{{{I18nForm form = new I18nForm(Customer.class);}}}. If you need to use a custom FormFieldFactory, just 
+				extend the {{{I18nFormFieldFactory}}} and make any necessary modifications. If you create the field instance
+				in your own field factory, then you will have to set the caption for it manually, to get the caption for
+				the field using the FieldTranslation annotation, just call 
+				{{{TranslationUtil.getFieldTranslation(pojoClass, (String) propertyId)}}} where the first parameter is your
+				POJO's class (pojoClass is a protected field in the {{{I18nFormFieldFactory}}}) and the property name
+				which you are processing.
+				
+				Below you can see an example using this technique. By selecting another language from the select, the 
+				application sets a new default language for the {{{Lang}}} class after which the the bean item is reset
+				as the form's item data source (to trigger a repaint in order to get the new captions).				
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="field translations">
 			<tuv lang="en">
 				<seg>Translations in forms</seg>
+			</tuv>
+		</tu>
+		<tu tuid="customer pojo">
+			<tuv lang="en">
+				<seg>Example: Customer POJO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="customer pojo translations">
+			<tuv lang="en">
+				<seg>Customer POJO translation file</seg>
 			</tuv>
 		</tu>
 		<tu tuid="configure i18n text">
@@ -889,6 +938,40 @@ tf.setCaption(InternationalizationServlet.getMessage(lang, "username"));
 		<tu tuid="application foundation">
 			<tuv lang="en">
 				<seg>Application Foundation</seg>
+			</tuv>
+		</tu>
+		<tu tuid="name">
+			<tuv lang="en">
+				<seg>Name</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Name</seg>
+			</tuv>
+		</tu>
+		<tu tuid="email">
+			<tuv lang="en">
+				<seg>E-mail address</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>E-Mail-Adresse</seg>
+			</tuv>
+		</tu>
+		<tu tuid="phone">
+			<tuv lang="en">
+				<seg>Phone number</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Telefonnummer</seg>
+			</tuv>
+		</tu>
+		<tu tuid="en language">
+			<tuv lang="en">
+				<seg>English - Englisch</seg>
+			</tuv>
+		</tu>
+		<tu tuid="de language">
+			<tuv lang="en">
+				<seg>German - Deutsch</seg>
 			</tuv>
 		</tu>
 	</body>

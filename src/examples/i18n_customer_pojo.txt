@@ -1,0 +1,15 @@
+import org.vaadin.appfoundation.i18n.FieldTranslation;
+
+public class Customer {
+
+    @FieldTranslation(tuid = "name")
+    private String name;
+
+    @FieldTranslation(tuid = "email")
+    private String email;
+
+    @FieldTranslation(tuid = "phone")
+    private String phone;
+
+    // Getters and setters removed from this example for clarity
+}

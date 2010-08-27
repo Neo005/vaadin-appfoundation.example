@@ -1,0 +1,47 @@
+Panel panel = new Panel();
+
+// Create a dummy customer
+final Customer customer = new Customer();
+customer.setName("John Doe");
+customer.setPhone("+123 456 7890");
+customer.setEmail("john@some.site");
+
+// Initialize the i18n form
+final I18nForm form = new I18nForm(Customer.class);
+
+// Create a select containing the different languages
+Select select = new Select();
+select.addContainerProperty("name", String.class, null);
+select.setItemCaptionPropertyId("name");
+Item item = select.addItem("en");
+item.getItemProperty("name").setValue(Lang.getMessage("en language"));
+item = select.addItem("de");
+item.getItemProperty("name").setValue(Lang.getMessage("de language"));
+
+select.setImmediate(true);
+
+// Create a value change listener which will trigger the language change
+select.addListener(new ValueChangeListener() {
+    private static final long serialVersionUID = -1667702475800410396L;
+
+    @Override
+    public void valueChange(ValueChangeEvent event) {
+        Object value = event.getProperty().getValue();
+        // Set the new locale based on the select's value
+        Lang.setLocale(value.equals("en") ? Locale.ENGLISH
+                : Locale.GERMAN);
+        // Create a BeanItem out of the Customer object
+        BeanItem<Customer> customerItem = new BeanItem<Customer>(
+                customer);
+        // Reset the customer to the form
+        form.setItemDataSource(customerItem);
+    }
+});
+
+// Select default language
+select.select("en");
+
+// Add components to layout
+panel.addComponent(select);
+panel.addComponent(form);
+getContent().addComponent(panel);
