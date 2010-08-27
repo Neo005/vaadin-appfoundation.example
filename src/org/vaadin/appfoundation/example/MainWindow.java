@@ -1,5 +1,8 @@
 package org.vaadin.appfoundation.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.vaadin.appfoundation.example.authentication.AuthIntro;
 import org.vaadin.appfoundation.example.authentication.ChangePassword;
 import org.vaadin.appfoundation.example.authentication.ConfiguringAuth;
@@ -72,6 +75,8 @@ public class MainWindow extends Window implements ViewContainer,
     private Tree i18nModuleTree;
     private Tree persistenceModuleTree;
     private Tree viewModuleTree;
+
+    private Map<Object, Tree> viewToTree = new HashMap<Object, Tree>();
 
     public MainWindow() {
         setCaption(Lang.getMessage("application foundation"));
@@ -273,12 +278,18 @@ public class MainWindow extends Window implements ViewContainer,
         ViewHandler.addView(c, this);
         ViewHandler.addUri(uri, c);
 
+        viewToTree.put(c, tree);
         Item item = tree.addItem(c);
         item.getItemProperty("name").setValue(Lang.getMessage(captionTuid));
     }
 
     public void activate(View view) {
         mainArea.activate(view);
+        Tree tree = viewToTree.get(view.getClass());
+        if (tree != null) {
+            menu.setSelectedTab(tree);
+            tree.select(view.getClass());
+        }
     }
 
     public void deactivate(View view) {
