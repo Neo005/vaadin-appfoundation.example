@@ -1,0 +1,14 @@
+<tmx version="1.4">
+	<body>
+		<tu tuid="username">
+			<tuv lang="en">
+				<seg>Username</seg>
+			</tuv>
+		</tu>
+		<tu tuid="password">
+			<tuv lang="en">
+				<seg>Password</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>

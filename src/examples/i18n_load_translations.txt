@@ -1,0 +1,7 @@
+// Update your translation file
+/** Code removed for clarity, see the first example on this page
+    for this implementation **/
+    
+// Load the new translation file into the InternationalizationServlet
+// and override any colliding translations
+InternationalizationServlet.loadTranslations(file, true);

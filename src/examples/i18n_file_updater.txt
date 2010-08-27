@@ -1,0 +1,33 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import nu.xom.ParsingException;
+import nu.xom.ValidityException;
+
+import org.vaadin.appfoundation.i18n.FillXml;
+
+public class UpdateTranslationsFileExample {
+
+    public static void main(String[] args) {
+        File file = new File("src/translations.xml");
+
+        String[] languages = { "en", "fi" };
+        List<String> identifiers = new ArrayList<String>();
+        identifiers.add("username");
+        identifiers.add("password");
+        identifiers.add("log in");
+
+        try {
+            FillXml.updateTranslations(file, languages, identifiers);
+        } catch (ValidityException e) {
+            e.printStackTrace();
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}

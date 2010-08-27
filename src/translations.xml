@@ -483,7 +483,76 @@
 		</tu>
 		<tu tuid="updating translations file text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Maintaining your translation files=
+				It is higly unlikely for you to know all the translations messages that are going to be in your application
+				at the point when you start developing your application. Hence, you will most likely want to update your
+				translation file with new translation messages. 
+				
+				AppFoundation provides you with a tool for maintaining your translation files. With the help of the tool,
+				you can easily create stubs for new translation messages. The tool is called {{{FillXml}}} and it has exactly
+				one method: {{{updateTranslations()}}}.
+				
+				Let's take a look at the method definition:
+				{{{public static void updateTranslations(File file, String[] languages, List&lt;String&gt; identifiers)}}}
+				
+				The method takes three input parameters: the file instance of your translation file, an array of all the
+				languages you wish to have in your translation file and finally an list of all translation unit identifiers
+				(tuids).
+				
+				==Example==
+				Let's assume we have the following translations file				
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="updating translations file text2">
+			<tuv lang="en">
+				<seg>The file contains English translations for the words "username" and "password". Now assume we want to
+				add a translation for the phrase "Log in" and additionally add support for another language, for example,
+				Finnish. What we can do, is to create a simple application that updates our existing translation file.
+				The following code show an example of how this could be done.				
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="updating translations file text3">
+			<tuv lang="en">
+				<seg>The resulting translation file would look like this:</seg>
+			</tuv>
+		</tu>
+		<tu tuid="updating translations file text4">
+			<tuv lang="en">
+				<seg>Now we have stubs for all the translations and we are ready to replace the TODOs with the actaul 
+				translations.
+				==Uploading new translations to running application==
+				If your application is already running, you might want to load the new translations
+				to your application without having to redeploy the application. This can easily be done by calling
+				the {{{InternationalizationServlet}}}'s {{{loadTranslations()}}}. The method takes two arguments,
+				the first argument is a File instance to your translation file. The second argument is a boolean
+				which defines if you wish to override existing translations. This means, that if the servlet already
+				has in memory a translation for a word, eg. "username", then the in-memory translation will be
+				overridden by the translation found in the translation file. In other words, this way you can update
+				existing translations. Obvisouly, if the second parameter is {{{true}}}, then the in-memory translations
+				will be overriden and if the parameter is {{{false}}}, then the in-memory translations are kept and
+				the overriding translations in the translation file are ignored.</seg>
+			</tuv>
+		</tu>
+		<tu tuid="update trans file code 1 caption">
+			<tuv lang="en">
+				<seg>Example of an existing translations file</seg>
+			</tuv>
+		</tu>
+		<tu tuid="update trans file code 2 caption">
+			<tuv lang="en">
+				<seg>Application for updating a translation file</seg>
+			</tuv>
+		</tu>
+		<tu tuid="update trans file code 3 caption">
+			<tuv lang="en">
+				<seg>The resulting translations file</seg>
+			</tuv>
+		</tu>
+		<tu tuid="update trans file code 4 caption">
+			<tuv lang="en">
+				<seg>Loading new translations to the i18n servlet</seg>
 			</tuv>
 		</tu>
 		<tu tuid="updating translations file">

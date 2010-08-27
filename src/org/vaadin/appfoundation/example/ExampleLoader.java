@@ -37,7 +37,13 @@ public class ExampleLoader {
 
         // Example code for the i18n module
         I18N_SERVLET("examples/i18n_configure_servlet.txt"),
-        I18N_INIT_LANG("examples/i18n_init_lang.txt");
+        I18N_INIT_LANG("examples/i18n_init_lang.txt"),
+        I18N_ORIGINAL_XML("examples/i18n_original_xml.txt"),
+        I18N_UPDATED_XML("examples/i18n_updated_xml.txt"),
+        I18N_FILE_UPDATER("examples/i18n_file_updater.txt"),
+        I18N_LOAD_TRANSLATIONS("examples/i18n_load_translations.txt"),
+
+        ;
 
         private final String fileName;
 

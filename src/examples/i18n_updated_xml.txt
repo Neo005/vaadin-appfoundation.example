@@ -1,0 +1,28 @@
+<tmx version="1.4">
+	<body>
+		<tu tuid="username">
+			<tuv lang="en">
+				<seg>Username</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="password">
+			<tuv lang="en">
+				<seg>Password</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+		<tu tuid="log in">
+			<tuv lang="en">
+				<seg>TODO</seg>
+			</tuv>
+			<tuv lang="fi">
+				<seg>TODO</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>
