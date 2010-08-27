@@ -1,0 +1,16 @@
+public class YourApplication extends Application {
+
+    private Window mainWindow;
+
+    @Override
+    public void init() {
+    	// Initialize the language class
+        Lang.initialize(this);
+        
+        // Change the default locale to be used
+        Lang.setLocale(Locale.ENGLISH);
+
+		....
+    }
+
+}

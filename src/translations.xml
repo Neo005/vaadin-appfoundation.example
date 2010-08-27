@@ -595,7 +595,7 @@
 				calling the loadTranslations()  method in the servlet. The method takes as input a File object. A good practice 
 				is to call this method in the application's context listener (see example below).
 
-				Finally, you'll need to initialize the Lang class for your application instance. 
+				Finally, you'll need to initialize the Lang class for your application instance (see second source code example). 
 				</seg>
 			</tuv>
 		</tu>

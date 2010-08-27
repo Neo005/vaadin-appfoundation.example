@@ -1,6 +1,7 @@
 package org.vaadin.appfoundation.example.i18n;
 
 import org.vaadin.appfoundation.example.Page;
+import org.vaadin.appfoundation.example.ExampleLoader.Examples;
 
 public class ConfigureAndIniI18n extends Page {
 
@@ -8,5 +9,7 @@ public class ConfigureAndIniI18n extends Page {
 
     public ConfigureAndIniI18n() {
         super("configure i18n text");
+        addCodeExample(Examples.I18N_SERVLET, "show code");
+        addCodeExample(Examples.I18N_INIT_LANG, "show code");
     }
 }

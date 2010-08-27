@@ -1,0 +1,39 @@
+package your.app;
+
+import java.io.File;
+import java.net.URL;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import org.vaadin.appfoundation.i18n.InternationalizationServlet;
+import org.vaadin.appfoundation.persistence.facade.FacadeFactory;
+
+/**
+  * An example implementation of a context listener which tells the
+  * InternationalizationServlet to load a translation file into memory
+  * whenever the application is deployed.
+  *
+  */
+public class YourAppContextListener implements ServletContextListener {
+
+    public void contextDestroyed(ServletContextEvent arg0) {
+
+    }
+
+    public void contextInitialized(ServletContextEvent arg0) {
+    	// Loads the URL for a file named "translations.xml" from 
+    	// your application's classpath.
+        URL url = YourApplication.class.getClassLoader().getResource(
+                "translations.xml");
+                
+        // Create a file instance using the URL
+        File file = new File(url.getPath());
+        
+        // Instruct the InternationalizationServlet to load into memory any 
+        // translations found in the file
+        InternationalizationServlet.loadTranslations(file);        
+    }
+
+}
+

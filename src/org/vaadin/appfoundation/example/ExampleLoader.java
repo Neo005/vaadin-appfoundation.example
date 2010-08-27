@@ -9,6 +9,7 @@ import java.net.URL;
 public class ExampleLoader {
 
     public static enum Examples {
+        // Example code for the authentication module
         AUTHENTICATE_USER("examples/authenticate_user.txt"),
         AUTHENTICATE_CONTEXT_LISTENER(
                 "examples/authentication_context_listener.txt"),
@@ -34,7 +35,9 @@ public class ExampleLoader {
         AUTHENTICATE_PASSWORD_VERIFICATION(
                 "examples/authentication_verify_password.txt"),
 
-        ;
+        // Example code for the i18n module
+        I18N_SERVLET("examples/i18n_configure_servlet.txt"),
+        I18N_INIT_LANG("examples/i18n_init_lang.txt");
 
         private final String fileName;
 
