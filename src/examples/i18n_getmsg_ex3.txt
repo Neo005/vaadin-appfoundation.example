@@ -1,0 +1,6 @@
+Lang.setLocale(Locale.GERMAN);
+String welcomeMsg = 
+	Lang.getMessage("welcome message", "John");
+
+// This will print out "Willkommen, John!"
+System.out.println(welcomeMsg); 

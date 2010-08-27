@@ -42,6 +42,10 @@ public class ExampleLoader {
         I18N_UPDATED_XML("examples/i18n_updated_xml.txt"),
         I18N_FILE_UPDATER("examples/i18n_file_updater.txt"),
         I18N_LOAD_TRANSLATIONS("examples/i18n_load_translations.txt"),
+        I18N_EXAMPLE_XML("examples/i18n_example_translations.txt"),
+        I18N_GET_MSG_TEXT_FIELD("examples/i18n_getmsg_ex1.txt"),
+        I18N_GET_MSG_WITH_PARAM("examples/i18n_getmsg_ex2.txt"),
+        I18N_GET_MSG_VIA_LANG("examples/i18n_getmsg_ex3.txt"),
 
         ;
 

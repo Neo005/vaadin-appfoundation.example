@@ -1,0 +1,2 @@
+TextField tf = new TextField();
+tf.setCaption(InternationalizationServlet.getMessage("en", "username"));

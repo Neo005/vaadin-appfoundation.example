@@ -625,12 +625,70 @@
 		</tu>
 		<tu tuid="getting messages text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Getting a translated message=
+				This page's purpose is to show you how to use the internationalization module in your application. Once
+				you've created your translations file and you've configured the internationalization module in your application, 
+				you are all set to start using the i18n module.
+				
+				There are two ways of getting a translation message, either directly via the {{{InternationalizationServlet}}} or then
+				through the wrapper method in the {{{Lang}}} class. I'll start by showing your how to get a message using the servlet.
+				The servlet has a method called {{{getMessage()}}} which takes three parameters. The first parameter is the language
+				for which you wish to have the translation message, the second parameter is the translation unit's identifier (tuid) 
+				and the final and third parameter is an array of parameters used in the translation message. For this example, we
+				will use the following translation file:				
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting messages text2">
+			<tuv lang="en">
+				<seg>The file contains two translation messages, one is a single word message and the second is a phrase containing
+				a parameter. Both messages have translations in both English and German. Now let's create a textfield which has the 
+				caption "Username". 		
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting messages text3">
+			<tuv lang="en">
+				<seg>As you can see from the example, the first parameter is "en" in the call to {{{getMessage()}}}. This means
+				that you will always get the English translation for the given tuid. To get the German translation for the same
+				message, you would need to change the first parameter to "de". You most likely do not want to hard code the
+				first parameter (unless you only have one language in your application, maybe not even then), but instead use
+				a variable whose value changes depending on user input or on some configuration settings.
+				
+				NOTE! Let's assume you have defined the first parameters as a string in the following fasion: 
+{{{
+String lang = "en"; 
+... 
+tf.setCaption(InternationalizationServlet.getMessage(lang, "username"));
+}}}
+				If you change the value of the lang	parameter do "de", it will **not** automatically change the textfield's caption, 
+				but instead, you will have to call the textfield's {{{setCaption()}}} method with the new translation message.
+				
+				Sometimes you want to have parametrized messages, for example, you want to show the user a greeting message
+				containing his name, when he logs in to your application. You can define placeholders for parameters in the 
+				translation message by using curly brackets and the index number of the parameter. For example, the
+				message "Welcome, {0}" contains one parameter which is given as the last argument when calling the 
+				{{{getMessage()}}}.		
+				</seg>
+			</tuv>
+		</tu>
+		<tu tuid="getting messages text4">
+			<tuv lang="en">
+				<seg>As seen in the [[#i18n-config|configuring the i18n module]], you can define a default locale for your 
+				i18n module. Once you've set the default locale, you can use {{{Lang}}} class's wrapper for the {{{getMessage()}}}
+				method. When using the wrapper method, you do not need to specify the language to be used, but instead the
+				translation message is fetched for the default language.
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="getting messages">
 			<tuv lang="en">
 				<seg>Getting a translated message</seg>
+			</tuv>
+		</tu>
+		<tu tuid="example translation xml">
+			<tuv lang="en">
+				<seg>Example translations file</seg>
 			</tuv>
 		</tu>
 		<tu tuid="field translations text">

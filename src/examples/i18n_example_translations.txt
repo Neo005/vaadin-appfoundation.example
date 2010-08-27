@@ -1,0 +1,20 @@
+<tmx version="1.4">
+	<body>
+		<tu tuid="username">
+			<tuv lang="en">
+				<seg>Username</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Benutzername</seg>
+			</tuv>
+		</tu>
+		<tu tuid="welcome message">
+			<tuv lang="en">
+				<seg>Welcome, {0}!</seg>
+			</tuv>
+			<tuv lang="de">
+				<seg>Willkommen, {0}!</seg>
+			</tuv>
+		</tu>
+	</body>
+</tmx>

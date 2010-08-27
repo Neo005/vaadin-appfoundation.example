@@ -1,0 +1,5 @@
+String welcomeMsg = 
+	InternationalizationServlet.getMessage("en", "welcome message", "John");
+
+// This will print out "Welcome, John!"
+System.out.println(welcomeMsg); 
