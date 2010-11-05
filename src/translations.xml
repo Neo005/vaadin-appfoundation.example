@@ -353,7 +353,9 @@
 		</tu>
 		<tu tuid="intro to authorization text">
 			<tuv lang="en">
-				<seg>TODO</seg>
+				<seg>=Introduction to the authorization module=
+				The authorization module provides a simple role based access control for your application. 
+				</seg>
 			</tuv>
 		</tu>
 		<tu tuid="resources">
